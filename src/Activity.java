@@ -12,17 +12,17 @@ public class Activity {
     public String getActivityName(){
         return activityName;
     }
-
     public void setActivityName() {
         this.activityName=activityName;
     }
     public int getTicketsAvailable() {
         return ticketsAvailable;
     }
-
     public void setTicketsAvailable() {
         this.ticketsAvailable=ticketsAvailable;
     }
+    public int getNumberActivities() {return numberActivities;}
+    public void setNumberActivities() {this.numberActivities=numberActivities;}
     @Override
     public String toString() {
         return ticketsAvailable + " tickets available for " + activityName + ".";
