@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Activity {
     private int numberActivities;
     private int numberCustomers;
@@ -8,7 +10,6 @@ public class Activity {
         this.activityName = activityName;
         this.ticketsAvailable = ticketsAvailable;
     }
-
     public String getActivityName(){
         return activityName;
     }

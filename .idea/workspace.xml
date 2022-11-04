@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="made a reader to read in the file and made array lists for customer names, activity names, and number tickets available. I think I'll need to change it all later.">
+      <change afterPath="$PROJECT_DIR$/src/TicketOffice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
@@ -73,6 +74,7 @@
       <workItem from="1667307760478" duration="2837000" />
       <workItem from="1667555659985" duration="5241000" />
       <workItem from="1667565174327" duration="2597000" />
+      <workItem from="1667573100140" duration="6094000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
