@@ -24,6 +24,14 @@ public class Activity {
     }
     public int getNumberActivities() {return numberActivities;}
     public void setNumberActivities() {this.numberActivities=numberActivities;}
+    private static ArrayList<Activity> activityArrayList = new ArrayList<>();
+    public static ArrayList<Activity> getActivityArrayList() {
+        return activityArrayList;
+    }
+    public java.util.ArrayList<Activity> addActivity(Activity a) {
+        activityArrayList.add(a);
+        return activityArrayList;
+    }
     @Override
     public String toString() {
         return ticketsAvailable + " tickets available for " + activityName + ".";
