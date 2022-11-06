@@ -12,11 +12,24 @@ constrained in any way?
 You should be able to find some clues to help you answer this question by looking at slide 41 of the second set of lecture notes.
  */
 
-import java.sql.Array;
 import java.util.ArrayList;
 
-public class SortedArrayList <E extends Comparable<E>> extends ArrayList{
-    public sortedList<E> sortArrayList(ArrayList<E> unsortedList, E object) {
-        return sortedList;
-    }
+public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList{
+    public ArrayList<E> sortArrayList(ArrayList<E> unsortedList, E object) {
+        for (int i = 1; i < unsortedList.size(); i++) {
+            //E value = new E;
+            E value = unsortedList.get(i);
+            int j;
+            for (j = i; j > 0; j--) {
+                if (unsortedList.get(j - 1).compareTo(value) < 0) {
+                    //get only retrieves values, we need something else to store it in an arraylist
+                    unsortedList.get(j) = unsortedList.get(j - 1);
+                } else {
+                    break;
+                }
+            }
+                unsortedList.get(j) = value;
+            }
+            return unsortedList;
+        }
 }

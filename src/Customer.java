@@ -24,13 +24,12 @@ public class Customer implements Comparable<Customer> {
     public String toString() {
         return firstName + " " + lastName;
     }
-    public int compareTo(Customer otherCustomer) {
-        if (firstName.equals(otherCustomer.firstName) && lastName.equals(otherCustomer.lastName)){
-            return 0;
-        }
-        else {
-            return 1;
-        }
+    public int compareTo(Customer c) {
+        int lastCompare = lastName.compareTo(c.lastName);
+        if (lastCompare !=0) return lastCompare; //if first comes after second in comparison, return positive; if equal return zero; if second comes after first, return negative
+        int firstCompare = firstName.compareTo(c.firstName);
+        if (firstCompare !=0) return firstCompare;
+        else return 0; //not sure about this, but I need to return something
     }
     private static ArrayList<Customer> customerList = new ArrayList<>();
     public static ArrayList<Customer> getCustomerList() {

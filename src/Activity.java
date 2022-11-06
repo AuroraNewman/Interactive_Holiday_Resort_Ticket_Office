@@ -42,13 +42,10 @@ public class Activity implements Comparable<Activity> {
         return ticketsAvailable + " tickets available for " + activityName + ".";
     }
     @Override
-    public int compareTo(Activity otherActivity){
-        if (this.activityName.equals(otherActivity.activityName)) {
-            return 0;
-        } else {
-            return 1;
-        }
-    }
+    public int compareTo(Activity a){
+        int activityCompare = activityName.compareTo(a.activityName);
+        return activityCompare;
+
     private static ArrayList<Activity> readActivitiesFile() {
         String text;
         int numberCustomers;
