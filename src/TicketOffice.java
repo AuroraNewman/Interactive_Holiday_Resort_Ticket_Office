@@ -6,7 +6,12 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 public class TicketOffice {
-    //make ticketoffice object and set equal to activity arraylist so we can act on it in the main
     public TicketOffice() {
     }
+    /*I suspect something like this will be needed. clerk should compare tickets requested by customer to tickets available for activity
+    public boolean ticketsAvailable(){
+        return (this.getTicketsAvailable()>ticketsRequested)
+    }
+
+     */
 }

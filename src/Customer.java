@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Customer {
+public class Customer implements Comparable<Customer> {
     private String firstName;
     private String lastName;
     public Customer() {
@@ -24,8 +24,13 @@ public class Customer {
     public String toString() {
         return firstName + " " + lastName;
     }
-    public boolean equals(Customer otherCustomer) {
-        return (firstName.equals(otherCustomer.firstName) && lastName.equals(otherCustomer.lastName));
+    public int compareTo(Customer otherCustomer) {
+        if (firstName.equals(otherCustomer.firstName) && lastName.equals(otherCustomer.lastName)){
+            return 0;
+        }
+        else {
+            return 1;
+        }
     }
     private static ArrayList<Customer> customerList = new ArrayList<>();
     public static ArrayList<Customer> getCustomerList() {

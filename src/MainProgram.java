@@ -7,16 +7,21 @@ import static java.lang.Integer.parseInt;
 
 public class MainProgram {
     //private static Activity activity1 = new Activity();
+    private static ArrayList activities;
+    private static ArrayList customers;
     public static void main(String[] args) {
         readActivitiesFile();
         for (Activity a : Activity.getActivityArrayList()) {
             System.out.println(a);
         }
-
+        activities = Activity.getActivityArrayList();
         readCustomersFile();
         for (Customer c : Customer.getCustomerList()) {
             System.out.println(c);
         }
+        customers = Customer.getCustomerList();
+        //customers = SortedArrayList(customers);
+
     }
 
 
