@@ -49,8 +49,8 @@ public class MainProgram {
                         c = checkCustomer();
                         ticketActivityName = checkActivity();
                         ticketsBought = checkTicketQuantity(ticketActivityName);
-                        //System.out.println(c + ticketActivityName + ticketsBought);
-                        //ticket = (c, ticketActivityName, ticketsBought);
+                        ticket = new TicketOffice(c, ticketActivityName, ticketsBought);
+                        ticket.addTicket(ticket);
                         //sellTicket();
                         break;
                     case "r": //Update info after ticket canceled.

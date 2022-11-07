@@ -1,11 +1,12 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
-public class TicketOffice {
+public class TicketOffice extends ArrayList {
     public TicketOffice() {
     }
     /*I suspect something like this will be needed. clerk should compare tickets requested by customer to tickets available for activity
@@ -17,10 +18,11 @@ public class TicketOffice {
      */
     private static SortedArrayList<Customer> customerList = new SortedArrayList<>();
     private static SortedArrayList<Activity> activityArrayList = new SortedArrayList<>();
+    private static ArrayList<TicketOffice> ticketOfficeArrayList = new ArrayList<>();
     private int ticketsBought;
     private Customer ticketCustomer;
     private String ticketActivityName;
-    private TicketOffice(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
+    public TicketOffice(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
         this.ticketCustomer=ticketCustomer;
         this.ticketActivityName=ticketActivityName;
         this.ticketsBought=ticketsBought;
@@ -38,6 +40,13 @@ public class TicketOffice {
     public SortedArrayList<Activity> addActivity(Activity a) {
         activityArrayList.add(a);
         return activityArrayList;
+    }
+    public static ArrayList<TicketOffice> getTicketOfficeArrayList() {
+        return ticketOfficeArrayList;
+    }
+    public ArrayList<TicketOffice> addTicket(TicketOffice ticket) {
+        ticketOfficeArrayList.add(ticket);
+        return ticketOfficeArrayList;
     }
     public static SortedArrayList<Activity> readActivitiesFile() {
         String text;
