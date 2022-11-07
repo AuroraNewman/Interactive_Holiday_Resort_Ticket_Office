@@ -7,30 +7,51 @@ import static java.lang.Integer.parseInt;
 
 public class MainProgram {
     //private static Activity activity1 = new Activity();
-    private static ArrayList activities;
-    private static ArrayList customers;
+    private static SortedArrayList<Activity> activities;
+    private static SortedArrayList<Customer> customers;
     public static void main(String[] args) {
         readActivitiesFile();
-        for (Activity a : Activity.getActivityArrayList()) {
+        for (Activity a : TicketOffice.getActivityArrayList()) {
             System.out.println(a);
         }
-        activities = Activity.getActivityArrayList();
+
+        activities = TicketOffice.getActivityArrayList();
         readCustomersFile();
-        for (Customer c : Customer.getCustomerList()) {
+        for (Customer c : TicketOffice.getCustomerList()) {
             System.out.println(c);
         }
-        customers = Customer.getCustomerList();
-        //customers = SortedArrayList(customers);
+        customers = TicketOffice.getCustomerList();
+        SortedArrayList<String> test = new SortedArrayList<>();
+        test.add("file");
+        test.add("song");
+        test.add("alphabet");
+        test.add("Terrible");
+        test.add("tenerife");
+        test.add("per che");
+        //Customer C = new Customer ("Alfred", "String");
+
+        customers.sortArrayList(customers);
+        for (Customer c : customers) {
+            System.out.println(c);
+        }
+
+
+        test.sortArrayList(test);
+        for (Object palabra: test) {
+            System.out.println(palabra);
+        }
+        activities.sortArrayList(activities);
+        for (Activity a : activities) {
+            System.out.println(a);
+        }
 
     }
 
-
-
-    private static ArrayList<Activity> readActivitiesFile() {
+    private static SortedArrayList<Activity> readActivitiesFile() {
         String text;
         int numberCustomers;
         int numberActivities = 0;
-        ArrayList<Activity> activityArrayList = Activity.getActivityArrayList();
+        SortedArrayList<Activity> activityArrayList = TicketOffice.getActivityArrayList();
         try {
             Scanner inFile = new Scanner(new FileReader("input.txt"));
             while (inFile.hasNextLine()) {
@@ -53,10 +74,10 @@ public class MainProgram {
         return activityArrayList;
     }
 
-    private static ArrayList<Customer> readCustomersFile() {
+    private static SortedArrayList<Customer> readCustomersFile() {
         int numberCustomers;
         int numberActivities = 0;
-        ArrayList<Customer> customerList = Customer.getCustomerList();
+        SortedArrayList<Customer> customerList = TicketOffice.getCustomerList();
         try {
             Scanner inFile = new Scanner(new FileReader("input.txt"));
             while (inFile.hasNextLine()) {

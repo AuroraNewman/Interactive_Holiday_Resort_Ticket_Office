@@ -27,16 +27,6 @@ public class Customer implements Comparable<Customer> {
     public int compareTo(Customer c) {
         int lastCompare = lastName.compareTo(c.lastName);
         if (lastCompare !=0) return lastCompare; //if first comes after second in comparison, return positive; if equal return zero; if second comes after first, return negative
-        int firstCompare = firstName.compareTo(c.firstName);
-        if (firstCompare !=0) return firstCompare;
-        else return 0; //not sure about this, but I need to return something
-    }
-    private static ArrayList<Customer> customerList = new ArrayList<>();
-    public static ArrayList<Customer> getCustomerList() {
-        return customerList;
-    }
-    public ArrayList<Customer> addCustomer(Customer c) {
-        customerList.add(c);
-        return customerList;
+        return firstName.compareTo(c.firstName);
     }
 }

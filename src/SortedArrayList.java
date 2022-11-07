@@ -14,22 +14,26 @@ You should be able to find some clues to help you answer this question by lookin
 
 import java.util.ArrayList;
 
-public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList{
-    public ArrayList<E> sortArrayList(ArrayList<E> unsortedList, E object) {
-        for (int i = 1; i < unsortedList.size(); i++) {
-            //E value = new E;
-            E value = unsortedList.get(i);
+public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList<E>{
+    @Override
+    public boolean add(E element) {
+        return super.add(element);
+    }
+
+
+    public <E extends Comparable<? super E>> void sortArrayList(ArrayList<E> sortableList) {
+        for (int i = 1; i < sortableList.size(); i++) {
+            E value = sortableList.get(i);
             int j;
             for (j = i; j > 0; j--) {
-                if (unsortedList.get(j - 1).compareTo(value) < 0) {
-                    //get only retrieves values, we need something else to store it in an arraylist
-                    unsortedList.get(j) = unsortedList.get(j - 1);
-                } else {
+                if (sortableList.get(j - 1).compareTo(value) < 0) {
                     break;
                 }
+                else {
+                    sortableList.set(j, sortableList.get(j - 1));
+                }
             }
-                unsortedList.get(j) = value;
+            sortableList.set(j, value);
             }
-            return unsortedList;
         }
 }
