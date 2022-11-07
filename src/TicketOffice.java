@@ -1,6 +1,5 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,6 +24,24 @@ public class TicketOffice extends ArrayList {
     public TicketOffice(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
         this.ticketCustomer=ticketCustomer;
         this.ticketActivityName=ticketActivityName;
+        this.ticketsBought=ticketsBought;
+    }
+    public Customer getTicketCustomer() {
+        return ticketCustomer;
+    }
+    public void setTicketCustomer(){
+        this.ticketCustomer=ticketCustomer;
+    }
+    public String getTicketActivityName() {
+        return ticketActivityName;
+    }
+    public void setTicketActivityName(){
+        this.ticketActivityName=ticketActivityName;
+    }
+    public int getTicketsBought(){
+        return ticketsBought;
+    }
+    public void setTicketsBought(){
         this.ticketsBought=ticketsBought;
     }
     public static SortedArrayList<Customer> getCustomerList() {
