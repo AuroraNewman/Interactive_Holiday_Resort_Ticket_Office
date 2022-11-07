@@ -12,9 +12,19 @@ public class TicketOffice {
     public boolean ticketsAvailable(){
         return (this.getTicketsAvailable()>ticketsRequested)
     }
+    this.activityName = activityName;
+        this.ticketsAvailable = ticketsAvailable;
      */
     private static SortedArrayList<Customer> customerList = new SortedArrayList<>();
     private static SortedArrayList<Activity> activityArrayList = new SortedArrayList<>();
+    private int ticketsBought;
+    private Customer ticketCustomer;
+    private String ticketActivityName;
+    private TicketOffice(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
+        this.ticketCustomer=ticketCustomer;
+        this.ticketActivityName=ticketActivityName;
+        this.ticketsBought=ticketsBought;
+    }
     public static SortedArrayList<Customer> getCustomerList() {
         return customerList;
     }

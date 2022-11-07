@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="moved readfile methods to main" />
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="commented out nonessential methods on main">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TicketOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketOffice.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +78,7 @@
       <workItem from="1667573100140" duration="6094000" />
       <workItem from="1667674494710" duration="6759000" />
       <workItem from="1667753352000" duration="11238000" />
-      <workItem from="1667830760481" duration="8513000" />
+      <workItem from="1667830760481" duration="18952000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -118,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667841151492</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="commented out nonessential methods on main">
+      <created>1667841766975</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667841766975</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +152,7 @@
     <MESSAGE value="implemented comparable interfaces; wept tears of frustration; starting to maybe sorta kinda come together idk" />
     <MESSAGE value="got the SortedArrayList working" />
     <MESSAGE value="moved readfile methods to main" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved readfile methods to main" />
+    <MESSAGE value="commented out nonessential methods on main" />
+    <option name="LAST_COMMIT_MESSAGE" value="commented out nonessential methods on main" />
   </component>
 </project>
