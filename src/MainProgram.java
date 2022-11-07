@@ -11,15 +11,16 @@ public class MainProgram {
     private static SortedArrayList<Customer> customers;
     public static void main(String[] args) {
         TicketOffice.readActivitiesFile();
+        activities = TicketOffice.getActivityArrayList();
+        customers = TicketOffice.getCustomerList();
+        /* this is just checking everything got added properly and that the sorting works.
         for (Activity a : TicketOffice.getActivityArrayList()) {
             System.out.println(a);
         }
-        activities = TicketOffice.getActivityArrayList();
         TicketOffice.readCustomersFile();
         for (Customer c : TicketOffice.getCustomerList()) {
             System.out.println(c);
         }
-        customers = TicketOffice.getCustomerList();
         customers.sortArrayList(customers);
         for (Customer c : customers) {
             System.out.println(c);
@@ -28,6 +29,8 @@ public class MainProgram {
         for (Activity a : activities) {
             System.out.println(a);
         }
+
+         */
 
     }
 }

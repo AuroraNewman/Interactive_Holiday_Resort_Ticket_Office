@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="got the SortedArrayList working">
-      <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortedArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortedArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TicketOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketOffice.java" afterDir="false" />
-    </list>
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="moved readfile methods to main" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +74,7 @@
       <workItem from="1667573100140" duration="6094000" />
       <workItem from="1667674494710" duration="6759000" />
       <workItem from="1667753352000" duration="11238000" />
-      <workItem from="1667830760481" duration="7851000" />
+      <workItem from="1667830760481" duration="8513000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -115,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667840310450</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="moved readfile methods to main">
+      <created>1667841151492</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667841151492</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +140,7 @@
     <MESSAGE value="made a reader to read in the file and made array lists for customer names, activity names, and number tickets available. I think I'll need to change it all later." />
     <MESSAGE value="implemented comparable interfaces; wept tears of frustration; starting to maybe sorta kinda come together idk" />
     <MESSAGE value="got the SortedArrayList working" />
-    <option name="LAST_COMMIT_MESSAGE" value="got the SortedArrayList working" />
+    <MESSAGE value="moved readfile methods to main" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved readfile methods to main" />
   </component>
 </project>
