@@ -228,3 +228,4 @@ public class MainProgram {
 //TO DO: the number of registered activities  is not increasing. no changes made to the customer are saving
 //TO DO: method checkTicketQuantity should write to the letters text file
 //TO DO: if someone mistypes a name, they still have to enter the activity and #tickets before returning to the main menu.
+//TO DO: check the update of the tickets for the user vs tickets available for activity
