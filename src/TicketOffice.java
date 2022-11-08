@@ -7,64 +7,41 @@ import static java.lang.Integer.parseInt;
 
 public class TicketOffice extends ArrayList {
     public TicketOffice() {
+
     }
-    /*I suspect something like this will be needed. clerk should compare tickets requested by customer to tickets available for activity
-    public boolean ticketsAvailable(){
-        return (this.getTicketsAvailable()>ticketsRequested)
-    }
-    this.activityName = activityName;
-        this.ticketsAvailable = ticketsAvailable;
-     */
+
     private static SortedArrayList<Customer> customerList = new SortedArrayList<>();
     private static SortedArrayList<Activity> activityArrayList = new SortedArrayList<>();
-    private static ArrayList<TicketOffice> ticketOfficeArrayList = new ArrayList<>();
+    private static ArrayList<Ticket> listOfTickets = new ArrayList<>();
     private int ticketsBought;
-    private Customer ticketCustomer;
-    private String ticketActivityName;
-    public TicketOffice(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
-        this.ticketCustomer=ticketCustomer;
-        this.ticketActivityName=ticketActivityName;
-        this.ticketsBought=ticketsBought;
-    }
-    public Customer getTicketCustomer() {
-        return ticketCustomer;
-    }
-    public void setTicketCustomer(){
-        this.ticketCustomer=ticketCustomer;
-    }
-    public String getTicketActivityName() {
-        return ticketActivityName;
-    }
-    public void setTicketActivityName(){
-        this.ticketActivityName=ticketActivityName;
-    }
-    public int getTicketsBought(){
-        return ticketsBought;
-    }
-    public void setTicketsBought(){
-        this.ticketsBought=ticketsBought;
-    }
+
     public static SortedArrayList<Customer> getCustomerList() {
         return customerList;
     }
+
     public SortedArrayList<Customer> addCustomer(Customer c) {
         customerList.add(c);
         return customerList;
     }
+
     public static SortedArrayList<Activity> getActivityArrayList() {
         return activityArrayList;
     }
+
     public SortedArrayList<Activity> addActivity(Activity a) {
         activityArrayList.add(a);
         return activityArrayList;
     }
-    public static ArrayList<TicketOffice> getTicketOfficeArrayList() {
-        return ticketOfficeArrayList;
+
+    public static ArrayList<Ticket> getListOfTickets() {
+        return listOfTickets;
     }
-    public ArrayList<TicketOffice> addTicket(TicketOffice ticket) {
-        ticketOfficeArrayList.add(ticket);
-        return ticketOfficeArrayList;
+
+    public void addTicket(Ticket t) {
+        listOfTickets.add(t);
+        //return listOfTickets;
     }
+
     public static SortedArrayList<Activity> readActivitiesFile() {
         String text;
         int numberCustomers;
@@ -91,6 +68,7 @@ public class TicketOffice extends ArrayList {
         }
         return activityArrayList;
     }
+
     public static SortedArrayList<Customer> readCustomersFile() {
         int numberCustomers;
         int numberActivities = 0;
@@ -110,7 +88,8 @@ public class TicketOffice extends ArrayList {
                     String separated[] = name.split(" ");
                     String firstName = separated[0];
                     String lastName = separated[1];
-                    Customer c = new Customer(firstName, lastName);
+                    int ticketsBought=0;
+                    Customer c = new Customer(firstName, lastName, ticketsBought);
                     customerList.add(c);
                 }
             }
@@ -120,3 +99,5 @@ public class TicketOffice extends ArrayList {
         return customerList;
     }
 }
+
+

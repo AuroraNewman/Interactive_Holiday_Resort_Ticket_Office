@@ -18,17 +18,17 @@ public class Activity implements Comparable<Activity> {
     public String getActivityName(){
         return activityName;
     }
-    public void setActivityName() {
+    public void setActivityName(String activityName) {
         this.activityName=activityName;
     }
     public int getTicketsAvailable() {
         return ticketsAvailable;
     }
-    public void setTicketsAvailable() {
+    public void setTicketsAvailable(int ticketsAvailable) {
         this.ticketsAvailable=ticketsAvailable;
     }
     public int getNumberActivities() {return numberActivities;}
-    public void setNumberActivities() {this.numberActivities=numberActivities;}
+    public void setNumberActivities(int numberActivities) {this.numberActivities=numberActivities;}
     @Override
     public String toString() {
         return ticketsAvailable + " tickets available for " + activityName + ".";
