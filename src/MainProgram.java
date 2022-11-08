@@ -55,7 +55,11 @@ public class MainProgram {
                             break;
                         }
                         update(ticket1, ticketsBought);
-                        System.out.println(c.getFirstName() + " " + c.getLastName() + " has registered for " + c.getNumberTickets() + " activities.");
+                        if (c.getNumberTickets() == 1) {
+                            System.out.println(c.getFirstName() + " " + c.getLastName() + " has registered for " + c.getNumberTickets() + " activity.");
+                        } else {
+                            System.out.println(c.getFirstName() + " " + c.getLastName() + " has registered for " + c.getNumberTickets() + " activities.");
+                        }
                         break;
                     case "r": //Update info after ticket canceled.
 
@@ -166,17 +170,27 @@ public class MainProgram {
         ArrayList<Ticket> ticketList = TicketOffice.getListOfTickets();
         int existingTickets = c.getNumberTickets();
         System.out.println(existingTickets);
-        /* this generates the var existing tickets each time instead of pulling it from customer
+        //boolean tickPossible = false;
+        /*
+        //this generates the var existing tickets each time instead of pulling it from customer
         for (Ticket t : ticketList) {
             if (t.getTicketCustomer().compareTo(c) == 0) {
                 existingTickets++;
+                tickPossible = true;
+            } else {
+                tickPossible = false;
             }
         }
+        return tickPossible;
+
          */
-        //check if customer is registered for too many activities. if not, add one to their registered activities, return true. if so, return false
+
+        //check if customer is registered for too many activities
+
         if (existingTickets < MAX_NUMBER_TICKETS_ALLOWED) {
-            existingTickets++;
-            c.setNumberTickets(existingTickets);
+            //existingTickets++;
+            //c.setNumberTickets(existingTickets);
+            c.setName("alpha", "bet");
             return true;
         } else {
             return false;
@@ -203,4 +217,6 @@ public class MainProgram {
         return updateComplete;
     }
 }
-//consider adding existingtickets as field to customer and updating it every time the customer buys a ticket
+//TO DO: the number of registered activities  is not increasing. no changes made to the customer are saving
+//TO DO: method checkTicketQuantity should write to the letters text file
+//TO DO: if someone mistypes a name, they still have to enter the activity and #tickets before returning to the main menu.

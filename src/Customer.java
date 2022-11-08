@@ -28,7 +28,12 @@ public class Customer implements Comparable<Customer> {
         return lastName;
     }
     public String toString() {
-        return firstName + " " + lastName;
+        if (registeredTickets == 1) {
+            return firstName + " " + lastName + " has registered for " + registeredTickets + " activity.";
+        }
+        else {
+            return firstName + " " + lastName + " has registered for " + registeredTickets + " activities.";
+        }
     }
     public int compareTo(Customer c) {
         int lastCompare = lastName.compareTo(c.lastName);
