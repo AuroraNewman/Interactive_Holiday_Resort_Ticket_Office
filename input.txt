@@ -1,5 +1,5 @@
 6
-Hiking
+a
 4
 Bowling
 8
@@ -12,6 +12,6 @@ Football
 Table Tennis
 4
 3
-Michael Smith
+a a
 Anna Smith
 Ted Jones

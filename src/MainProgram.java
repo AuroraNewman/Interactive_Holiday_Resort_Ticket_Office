@@ -55,6 +55,7 @@ public class MainProgram {
                             break;
                         }
                         update(ticket1, ticketsBought);
+                        System.out.println(c.getFirstName() + " " + c.getLastName() + " has registered for " + c.getNumberTickets() + " activities.");
                         break;
                     case "r": //Update info after ticket canceled.
 
@@ -71,7 +72,7 @@ public class MainProgram {
 
     private static void printMenu() {
         System.out.println("Welcome to the Samsung Resort on Geoje.");
-        System.out.println("Please choose from one of the following options");
+        System.out.println("Please choose from one of the following options.");
         System.out.println("f: Exit the program.");
         System.out.println("a: Display information about all activities.");
         System.out.println("c: Display information about all registered customers.");
@@ -94,6 +95,9 @@ public class MainProgram {
             System.out.println("First Name: " + firstName + ". Last Name: " + lastName);
         } catch (InputMismatchException e) {
             System.out.println("Please enter a valid entry.");
+        }
+        catch (IndexOutOfBoundsException f) {
+            System.out.println("Please enter a valid name for a registered customer.");
         }
         for (Customer cust : customers) {
             if (cust.compareTo(c) == 0) {
@@ -157,7 +161,7 @@ public class MainProgram {
         }
         return ticketsBought;
     }
-
+    //this checks that the customer has not registered for too many activities
     private static boolean checkNumberTicketsSold(Customer c) {
         ArrayList<Ticket> ticketList = TicketOffice.getListOfTickets();
         int existingTickets = c.getNumberTickets();
@@ -169,7 +173,10 @@ public class MainProgram {
             }
         }
          */
+        //check if customer is registered for too many activities. if not, add one to their registered activities, return true. if so, return false
         if (existingTickets < MAX_NUMBER_TICKETS_ALLOWED) {
+            existingTickets++;
+            c.setNumberTickets(existingTickets);
             return true;
         } else {
             return false;
@@ -186,7 +193,7 @@ public class MainProgram {
                 int ticketsAvailable = a.getTicketsAvailable();
                 ticketsAvailable = ticketsAvailable - ticketsBought;
                 a.setTicketsAvailable(ticketsAvailable);
-                System.out.println("from update method ticketsAvailable " + ticketsAvailable);
+                System.out.println("Remaining available tickets: " + ticketsAvailable);
             }
         }
         //update number of activities for which customer has registered
