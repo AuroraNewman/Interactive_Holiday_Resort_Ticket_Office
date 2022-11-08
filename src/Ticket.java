@@ -5,7 +5,7 @@ public class Ticket {
     public Ticket() {
         ticketCustomer = new Customer("","",ticketsBought);
         ticketActivityName="";
-        //ticketsBought=0;
+        ticketsBought=0;
     }
     public Ticket(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
         this.ticketCustomer=ticketCustomer;
@@ -15,22 +15,23 @@ public class Ticket {
     public Customer getTicketCustomer() {
         return ticketCustomer;
     }
-    public void setTicketCustomer(){
-        this.ticketCustomer=ticketCustomer;
+    public void setTicketCustomer(Customer activeCustomer){
+        this.ticketCustomer=activeCustomer;
     }
     public String getTicketActivityName() {
         return ticketActivityName;
     }
-    public void setTicketActivityName(){
-        this.ticketActivityName=ticketActivityName;
+    public void setTicketActivityName(String ticketActivityName){
+        this.ticketActivityName= ticketActivityName;
     }
-    /*
+
     public int getTicketsBought(){
         return ticketsBought;
     }
-    public void setTicketsBought(){
-        this.ticketsBought=ticketsBought;
+    public void setTicketsBought(int ticketsBought){
+        this.ticketsBought= ticketsBought;
     }
-
-     */
+    public static String toString(Ticket t){
+        return t.getTicketCustomer().getFirstName() + " " + t.getTicketCustomer().getLastName() + " has purchased " + t.getTicketsBought() + " tickets for the activity " + t.ticketActivityName + ".";
+    }
 }

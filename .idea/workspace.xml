@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r">
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ticket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -77,7 +83,7 @@
       <workItem from="1667753352000" duration="11238000" />
       <workItem from="1667830760481" duration="21858000" />
       <workItem from="1667908014721" duration="14121000" />
-      <workItem from="1667931871858" duration="2630000" />
+      <workItem from="1667931871858" duration="12381000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -149,7 +155,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667925986129</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket.">
+      <created>1667934638344</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1667934638344</updated>
+    </task>
+    <task id="LOCAL-00012" summary="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket.">
+      <created>1667934881428</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1667934881428</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +196,7 @@
     <MESSAGE value="finished menu parts f, a, c, and the check parts of t. must use this to modify the number of tickets available for t. must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="finished menu parts f, a, c, and the check parts of t. set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
+    <MESSAGE value="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket." />
+    <option name="LAST_COMMIT_MESSAGE" value="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket." />
   </component>
 </project>
