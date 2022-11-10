@@ -7,7 +7,6 @@ import static java.lang.Integer.parseInt;
 
 public class TicketOffice extends ArrayList {
     public TicketOffice() {
-
     }
 
     private static SortedArrayList<Customer> customerList = new SortedArrayList<>();

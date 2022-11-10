@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 public class MainProgram {
-    static final int MAX_NUMBER_TICKETS_ALLOWED = 3;
+    static final int MAX_NUMBER_ACTIVITIES_ALLOWED = 3;
     private static SortedArrayList<Activity> activities;
     private static SortedArrayList<Customer> customers;
     //private static ArrayList<Ticket> tickets;
@@ -17,6 +17,9 @@ public class MainProgram {
         TicketOffice.readCustomersFile();
         customers = TicketOffice.getCustomerList();
         customers.sortArrayList(customers);
+        Customer c = new Customer("Alpha", "Bet", 1);
+        c.setRegisteredTickets(5);
+        System.out.println(c);
 
         boolean done = false;
         Ticket activeTicket = new Ticket();
@@ -98,12 +101,11 @@ public class MainProgram {
                             }
                             if (nameCheck && numberActivitiesCheck && activityCheck && ticketNumberCheck) {
                                 checkSuccessful = true;
-                            }
-                            if (!checkSuccessful) {
+                            } else if (!checkSuccessful) {
                                 System.out.println("Please try again. Thank you.");
                                 break;
                             }
-                            System.out.println(activeCustomer.toString());
+                            System.out.println("at end of main in t:");
                             activeTicket.setTicketCustomer(activeCustomer);
                             System.out.println("ticketActivityName " + ticketActivityName);
                             activeTicket.setTicketActivityName(ticketActivityName);
@@ -118,7 +120,9 @@ public class MainProgram {
                             }
                             boolean updateComplete = update(activeTicket, ticketsBought);
                             System.out.println("update complete? " + updateComplete);
-                            System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + activeCustomer.getRegisteredTickets() + " tickets.");
+                            System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + activeCustomer.getRegisteredTickets() + " activities.");
+                            System.out.println("Check to see this customer has a registered activity");
+                            System.out.println(activeCustomer.toString());
                             tComplete = true;
                         }
                         break;
@@ -232,10 +236,10 @@ public class MainProgram {
     }
     //check customer has registered for 3 or fewer activities
     private static boolean checkNumberActivities(Customer activeCustomer){
-        int registeredTickets = activeCustomer.getRegisteredTickets();
-        System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + registeredTickets + " tickets.");
+        int registeredActivities = activeCustomer.getRegisteredTickets();
+        System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + registeredActivities + " activities.");
         boolean canRegister = false;
-        if (activeCustomer.getRegisteredTickets()<MAX_NUMBER_TICKETS_ALLOWED){
+        if (activeCustomer.getRegisteredTickets()<MAX_NUMBER_ACTIVITIES_ALLOWED){
             canRegister = true;
         }
         return canRegister;
@@ -293,9 +297,10 @@ public class MainProgram {
             if (ticketActivityName.compareTo(activities.get(i).getActivityName()) == 0) {
                 Activity a = activities.get(i);
                 int ticketsAvailable = a.getTicketsAvailable();
-                ticketsAvailable = ticketsAvailable - ticketsBought;
+                ticketsAvailable -= ticketsBought;
                 a.setTicketsAvailable(ticketsAvailable);
                 System.out.println("Remaining available tickets: " + ticketsAvailable);
+                //updateComplete=true;
             }
         }
         //update number of activities for which customer has registered
@@ -305,7 +310,8 @@ public class MainProgram {
             c.setRegisteredTickets(numberRegisteredActivities);
             updateComplete = true;
             return updateComplete;
-        } else if (ticketsBought < 0 && ticketsBought == c.getRegisteredTickets()) {
+            //for this, we want to know if the customer is returning all of the tickets they bought for that activity
+        } else if (ticketsBought < 0 && (-ticketsBought) == t.getTicketsBought()) {
             int numberRegisteredActivities = c.getRegisteredTickets();
             numberRegisteredActivities--;
             c.setRegisteredTickets(numberRegisteredActivities);

@@ -19,7 +19,9 @@ public class Customer implements Comparable<Customer> {
         this.firstName=name1;
         this.lastName=name2;
     }
-    public int getRegisteredTickets(){ return registeredTickets;}
+    public int getRegisteredTickets(){
+        return registeredTickets;
+    }
     public void setRegisteredTickets(int numberTickets){this.registeredTickets=numberTickets;}
     public String getFirstName() {
         return firstName;
