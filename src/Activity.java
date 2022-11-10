@@ -6,8 +6,6 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 public class Activity implements Comparable<Activity> {
-    private int numberActivities;
-    private int numberCustomers;
     private String activityName;
     private int ticketsAvailable;
 
@@ -27,8 +25,6 @@ public class Activity implements Comparable<Activity> {
     public void setTicketsAvailable(int ticketsAvailable) {
         this.ticketsAvailable=ticketsAvailable;
     }
-    public int getNumberActivities() {return numberActivities;}
-    public void setNumberActivities(int numberActivities) {this.numberActivities=numberActivities;}
     @Override
     public String toString() {
         return ticketsAvailable + " tickets available for " + activityName + ".";

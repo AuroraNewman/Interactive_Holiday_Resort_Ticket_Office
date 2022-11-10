@@ -3,9 +3,9 @@ public class Ticket {
     private String ticketActivityName;
     private int ticketsBought;
     public Ticket() {
-        ticketCustomer = new Customer("","",ticketsBought);
+        ticketCustomer = new Customer("","",0);
         ticketActivityName="";
-        //ticketsBought=0;
+        ticketsBought=0;
     }
     public Ticket(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
         this.ticketCustomer=ticketCustomer;
@@ -15,22 +15,20 @@ public class Ticket {
     public Customer getTicketCustomer() {
         return ticketCustomer;
     }
-    public void setTicketCustomer(){
+    public void setTicketCustomer(Customer ticketCustomer){
         this.ticketCustomer=ticketCustomer;
     }
     public String getTicketActivityName() {
         return ticketActivityName;
     }
-    public void setTicketActivityName(){
+    public void setTicketActivityName(String ticketActivityName){
         this.ticketActivityName=ticketActivityName;
     }
-    /*
     public int getTicketsBought(){
         return ticketsBought;
     }
-    public void setTicketsBought(){
+    public void setTicketsBought(int ticketsBought){
         this.ticketsBought=ticketsBought;
     }
 
-     */
 }
