@@ -20,9 +20,11 @@ public class MainProgram {
 
         boolean done = false;
         Ticket activeTicket = new Ticket();
+        Customer activeCustomer = new Customer();
+        String ticketActivityName = new String();
         while (!done) {
-            Customer activeCustomer = new Customer();
-            String ticketActivityName = new String();
+            //Customer activeCustomer = new Customer();
+            //String ticketActivityName = new String();
             int ticketsBought = 0;
             //Ticket activeTicket = new Ticket();
             printMenu();
@@ -42,79 +44,157 @@ public class MainProgram {
                             System.out.println(cust);
                         break;
                     case "t": //Update info after clerk sells ticket.
-                        boolean nameCheck = false;
-                        boolean numberActivitiesCheck = false;
-                        boolean activityCheck = false;
-                        boolean ticketNumberCheck = false;
-                        boolean checkSuccessful = false;
-                        try {
-                            System.out.println("Please enter the customer's full name, first and last.");
-                            Scanner input = new Scanner(System.in);
-                            String name = input.nextLine();
-                            String separated[] = name.split(" ");
-                            String firstName = separated[0];
-                            String lastName = separated[1];
-                            activeCustomer.setName(firstName, lastName);
-                            System.out.println("You have entered:");
-                            System.out.println("First Name: " + firstName + ". Last Name: " + lastName);
-                            if (checkName(activeCustomer)) {
-                                nameCheck = true;
-                            } else if (!checkName(activeCustomer)) {
-                                System.out.println("You have entered an invalid name. Please try again.");
+                        boolean tComplete = false;
+                        while (!tComplete) {
+                            boolean nameCheck = false;
+                            boolean numberActivitiesCheck = false;
+                            boolean activityCheck = false;
+                            boolean ticketNumberCheck = false;
+                            boolean checkSuccessful = false;
+                            try {
+                                System.out.println("Please enter the customer's full name, first and last.");
+                                Scanner input = new Scanner(System.in);
+                                String name = input.nextLine();
+                                String separated[] = name.split(" ");
+                                String firstName = separated[0];
+                                String lastName = separated[1];
+                                activeCustomer.setName(firstName, lastName);
+                                System.out.println("You have entered:");
+                                System.out.println("First Name: " + firstName + ". Last Name: " + lastName);
+                                if (checkName(activeCustomer)) {
+                                    nameCheck = true;
+                                } else if (!checkName(activeCustomer)) {
+                                    System.out.println("You have entered an invalid name. Please try again.");
+                                    break;
+                                }
+                                if (checkNumberActivities(activeCustomer)) {
+                                    numberActivitiesCheck = true;
+                                } else if (!checkNumberActivities(activeCustomer)) {
+                                    System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for too many activities.");
+                                    System.out.println("Please cancel an activity before adding a new one.");
+                                    break;
+                                }
+                                System.out.println("Please enter the customer's chosen activity.");
+                                ticketActivityName = input.nextLine();
+                                if (checkActivities(ticketActivityName)) {
+                                    activityCheck = true;
+                                } else if (!checkActivities(ticketActivityName)) {
+                                    System.out.println(ticketActivityName + " is not a valid activity name. Please try again.");
+                                    break;
+                                }
+                                System.out.println("Please enter the number of tickets to be bought.");
+                                ticketsBought = input.nextInt();
+                                if (checkSufficientTickets(ticketActivityName, ticketsBought)) {
+                                    ticketNumberCheck = true;
+                                } else if (!checkSufficientTickets(ticketActivityName, ticketsBought)) {
+                                    System.out.println("There are not enough tickets available. Please choose a different activity or quantity.");
+                                    break;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Please enter a valid option.");
+                            }
+                            catch (IndexOutOfBoundsException f) {
+                                System.out.println("Please check your input and try again. Thank you.");
+                            }
+                            if (nameCheck && numberActivitiesCheck && activityCheck && ticketNumberCheck) {
+                                checkSuccessful = true;
+                            }
+                            if (!checkSuccessful) {
+                                System.out.println("Please try again. Thank you.");
                                 break;
                             }
-                            if (checkNumberActivities(activeCustomer)) {
-                                numberActivitiesCheck = true;
-                            } else if (!checkNumberActivities(activeCustomer)){
-                                System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for too many activities.");
-                                System.out.println("Please cancel an activity before adding a new one.");
-                                break;
+                            System.out.println(activeCustomer.toString());
+                            activeTicket.setTicketCustomer(activeCustomer);
+                            System.out.println("ticketActivityName " + ticketActivityName);
+                            activeTicket.setTicketActivityName(ticketActivityName);
+                            System.out.println("ticketsBought " + ticketsBought);
+                            activeTicket.setTicketsBought(ticketsBought);
+                            System.out.println("Active ticket in main");
+                            System.out.println(Ticket.toString(activeTicket));
+                            //store ticket in ticket office
+                            TicketOffice.getListOfTickets().add(activeTicket);
+                            for (Ticket t : TicketOffice.getListOfTickets()) {
+                                System.out.println(Ticket.toString(t));
                             }
-                            System.out.println("Please enter the customer's chosen activity.");
-                            ticketActivityName = input.nextLine();
-                            if (checkActivities(ticketActivityName)) {
-                                activityCheck = true;
-                            } else if (!checkActivities(ticketActivityName)) {
-                                System.out.println(ticketActivityName + " is not a valid activity name. Please try again.");
-                                break;
-                            }
-                            System.out.println("Please enter the number of tickets to be bought.");
-                            ticketsBought = input.nextInt();
-                            if (checkSufficientTickets(ticketActivityName, ticketsBought)) {
-                                ticketNumberCheck = true;
-                            } else if (!checkSufficientTickets(ticketActivityName, ticketsBought)) {
-                                System.out.println("There are not enough tickets available. Please choose a different activity or quantity.");
-                                break;
-                            }
-                        } catch (InputMismatchException e) {
-                            System.out.println("Please enter a valid option.");
+                            boolean updateComplete = update(activeTicket, ticketsBought);
+                            System.out.println("update complete? " + updateComplete);
+                            System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + activeCustomer.getRegisteredTickets() + " tickets.");
+                            tComplete = true;
                         }
-                        if (nameCheck && numberActivitiesCheck && activityCheck && ticketNumberCheck) {
-                            checkSuccessful = true;
-                        }
-                        if (!checkSuccessful) {
-                            System.out.println("Please try again. Thank you.");
-                            break;
-                        }
-                        System.out.println(activeCustomer.toString());
-                        activeTicket.setTicketCustomer(activeCustomer);
-                        System.out.println("ticketActivityName " + ticketActivityName);
-                        activeTicket.setTicketActivityName(ticketActivityName);
-                        System.out.println("ticketsBought " + ticketsBought);
-                        activeTicket.setTicketsBought(ticketsBought);
-                        System.out.println("Active ticket in main");
-                        System.out.println(Ticket.toString(activeTicket));
-                        //store ticket in ticket office
-                        TicketOffice.getListOfTickets().add(activeTicket);
-                        for (Ticket t : TicketOffice.getListOfTickets()) {
-                            System.out.println(Ticket.toString(t));
-                        }
-                        boolean updateComplete = update(activeTicket, ticketsBought);
-                        System.out.println("update complete? "+ updateComplete);
-                        System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + activeCustomer.getRegisteredTickets() + " tickets.");
                         break;
                     case "r": //Update info after ticket canceled.
+                        boolean rComplete = false;
+                        while (!rComplete) {
+                            boolean nameCheck = false;
+                            boolean numberActivitiesCheck = false;
+                            boolean activityCheck = false;
+                            int cancelQuantity;
+                            try {
+                                System.out.println("Please enter the customer's full name, first and last.");
+                                Scanner input = new Scanner(System.in);
+                                String name = input.nextLine();
+                                String separated[] = name.split(" ");
+                                String firstName = separated[0];
+                                String lastName = separated[1];
+                                activeCustomer.setName(firstName, lastName);
+                                System.out.println("You have entered:");
+                                System.out.println("First Name: " + firstName + ". Last Name: " + lastName);
+                                //check customer's name is valid
+                                if (checkName(activeCustomer)) {
+                                    nameCheck = true;
+                                } else if (!checkName(activeCustomer)) {
+                                    System.out.println("You have entered an invalid name. Please try again.");
+                                    break;
+                                }
+                                //check activity name is valid.
+                                System.out.println("Please enter the activity to be cancelled.");
+                                ticketActivityName = input.nextLine();
+                                if (checkActivities(ticketActivityName)) {
+                                    activityCheck = true;
+                                } else if (!checkActivities(ticketActivityName)) {
+                                    System.out.println(ticketActivityName + " is not a valid activity name. Please try again.");
+                                    break;
+                                }
+                                //find ticket using customer name and activity name
+                                //check the ticket has the same customer and activity names as input
+                                ArrayList<Ticket> tickets = TicketOffice.getListOfTickets();
+                                for (Ticket t : tickets) {
+                                    int nameMatch = t.getTicketCustomer().compareTo(activeCustomer);
+                                    if (nameMatch == 0) {
+                                        int activityMatch = t.getTicketActivityName().compareTo(ticketActivityName);
+                                        if (activityMatch == 0) {
+                                            activeTicket = t;
+                                        }
+                                    }
+                                }
+                                //ask how many tickets to cancel
+                                try {
+                                    System.out.println("You have purchased " + activeTicket.getTicketsBought() + " tickets.");
+                                    System.out.println("How many tickets will you cancel?");
+                                    cancelQuantity = input.nextInt();
+                                    cancelQuantity = cancelQuantity * (-1);
+                                    if (cancelQuantity == activeTicket.getTicketsBought()) {
+                                        update(activeTicket, cancelQuantity);
+                                        //reduce number of registered activities
+                                    } else if (cancelQuantity < activeTicket.getTicketsBought()) {
+                                        update(activeTicket, cancelQuantity);
+                                    } else {
+                                        System.out.println("You have requested a cancellation for more tickets than are available.");
+                                        System.out.println("Please affirm the quantity and try again.");
+                                        break; //note, may change this section to a while loop. have boolean set at top and this way clerk doesn't have to runthrough all the toptions again
+                                    }
 
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Please check your input and try again.");
+                                }
+                            } catch  (InputMismatchException e) {
+                                    System.out.println("Please enter a valid option.");
+                                }
+                            catch (IndexOutOfBoundsException f) {
+                                System.out.println("Please check your input and try again. Thank you.");
+                            }
+                        rComplete = true;
+                        }
                         break;
                     default:
                         System.out.println("Please enter a valid option.");
@@ -184,21 +264,21 @@ public class MainProgram {
             }
         }
         if (ticketsBought > availableTickets) {
-            System.out.println("Sorry, there are insufficient available tickets. Please choose another activity.");
-            return ticketsAvailable;
-            //write this to letters.txt
-        } else if (ticketsBought == 1) {
-            System.out.println("You have purchased " + ticketsBought + " ticket for " + ticketActivityName + ".");
-            ticketsAvailable = true;
-            return ticketsAvailable;
-        } else if (ticketsBought > 1) {
-            System.out.println("You have purchased " + ticketsBought + " tickets for " + ticketActivityName + ".");
-            ticketsAvailable = true;
-            return ticketsAvailable;
-        } else {
-            System.out.println("Please enter a valid number of tickets. Thank you.");
-            return ticketsAvailable;
-        }
+                //System.out.println("Sorry, there are insufficient available tickets. Please choose another activity.");
+                return ticketsAvailable;
+                //write this to letters.txt
+            } else if (ticketsBought == 1) {
+                System.out.println("You have purchased " + ticketsBought + " ticket for " + ticketActivityName + ".");
+                ticketsAvailable = true;
+                return ticketsAvailable;
+            } else if (ticketsBought > 1) {
+                System.out.println("You have purchased " + ticketsBought + " tickets for " + ticketActivityName + ".");
+                ticketsAvailable = true;
+                return ticketsAvailable;
+            } else {
+                System.out.println("Please enter a valid number of tickets. Thank you.");
+                return ticketsAvailable;
+            }
     }
     private static boolean update(Ticket t, int ticketsBought){
         boolean updateComplete = false;
@@ -208,6 +288,7 @@ public class MainProgram {
         System.out.println(Ticket.toString(t));
 
         //update the available tickets for the activity:
+        //this works for buying or returning
         for (int i = 0; i < activities.size(); i++) {
             if (ticketActivityName.compareTo(activities.get(i).getActivityName()) == 0) {
                 Activity a = activities.get(i);
@@ -218,14 +299,44 @@ public class MainProgram {
             }
         }
         //update number of activities for which customer has registered
-        int numberTicketsBought = c.getRegisteredTickets();
-        numberTicketsBought ++;
-        c.setRegisteredTickets(numberTicketsBought);
-        updateComplete = true;
+        if (ticketsBought > 0) {
+            int numberRegisteredActivities = c.getRegisteredTickets();
+            numberRegisteredActivities++;
+            c.setRegisteredTickets(numberRegisteredActivities);
+            updateComplete = true;
+            return updateComplete;
+        } else if (ticketsBought < 0 && ticketsBought == c.getRegisteredTickets()) {
+            int numberRegisteredActivities = c.getRegisteredTickets();
+            numberRegisteredActivities--;
+            c.setRegisteredTickets(numberRegisteredActivities);
+            System.out.println("You may register for an additional activity.");
+            updateComplete = true;
+            return updateComplete;
+        } else if (ticketsBought < 0) {
+            updateComplete = true;
+            return updateComplete;
+        }
         return updateComplete;
     }
+    /* i want to return the ticket but only the good one, so I am moving this to main
+    private static Ticket checkTicketForCancellation(Customer c, String ticketActivityName) {
+        //boolean ticketValid = false;
+        ArrayList<Ticket> tickets = TicketOffice.getListOfTickets();
+        for (Ticket t : tickets) {
+            int nameMatch = t.getTicketCustomer().compareTo(c);
+            if (nameMatch == 0) {
+                int activityMatch = t.getTicketActivityName().compareTo(ticketActivityName);
+                if (activityMatch == 0) {
+                    return t;
+                }
+            }
+        }
+        //return ticketValid;
+    }
+
+     */
 }
-//TO DO: the number of registered activities  is not increasing. no changes made to the customer are saving
-//TO DO: method checkTicketQuantity should write to the letters text file
-//TO DO: if someone mistypes a name, they still have to enter the activity and #tickets before returning to the main menu.
-//TO DO: check the update of the tickets for the user vs tickets available for activity
+//TODO: method checkTicketQuantity should write to the letters text file
+//TODO: if someone mistypes a name, they still have to enter the activity and #tickets before returning to the main menu.
+//TODO: check the update of the tickets for the user vs tickets available for activity
+//TODO: consider if a customer wants to purchase additional tickets for an activity for which they are already registered. current code adds on an additional registered activity.

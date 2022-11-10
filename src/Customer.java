@@ -16,11 +16,11 @@ public class Customer implements Comparable<Customer> {
         registeredTickets=numberTickets;
     }
     public void setName(String name1, String name2) {
-        firstName=name1;
-        lastName=name2;
+        this.firstName=name1;
+        this.lastName=name2;
     }
     public int getRegisteredTickets(){ return registeredTickets;}
-    public void setRegisteredTickets(int numberTickets){registeredTickets=numberTickets;}
+    public void setRegisteredTickets(int numberTickets){this.registeredTickets=numberTickets;}
     public String getFirstName() {
         return firstName;
     }
