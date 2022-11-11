@@ -26,10 +26,7 @@ public class MainProgram {
         int ticketQuantity = 0;
         Ticket activeTicket = new Ticket(activeCustomer, ticketActivityName, ticketQuantity);
         while (!done) {
-            //Customer activeCustomer = new Customer();
-            //String ticketActivityName = new String();
             int ticketsBought = 0;
-            //Ticket activeTicket = new Ticket();
             printMenu();
             try {
                 Scanner userInput = new Scanner(System.in);
@@ -113,16 +110,7 @@ public class MainProgram {
                                 System.out.println("Please check your input and try again. Thank you.");
                             }
                                 break;
-                            }/* this is updating the number of available tickets even if there are insufficient tickets, so moving it above
-                            activeTicket.setTicketCustomer(activeCustomer);
-                            activeTicket.setTicketActivityName(ticketActivityName);
-                            activeTicket.setTicketsBought(ticketsBought);
-                            System.out.println(Ticket.toString(activeTicket));
-                        TicketOffice.getListOfTickets().add(activeTicket);
-                            boolean updateComplete = update(activeTicket, ticketsBought);
-                            System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + activeCustomer.getRegisteredTickets() + " activities.");
-                            tComplete = true;
-                            */
+                            }
                         break;
                     case "r": //Update info after ticket canceled.
                         boolean rComplete = false;
@@ -175,15 +163,13 @@ public class MainProgram {
                                     System.out.println("How many tickets will you cancel?");
                                     cancelQuantity = input.nextInt();
                                     cancelQuantity = cancelQuantity * (-1);
-                                    if (cancelQuantity == activeTicket.getTicketsBought()) {
+                                    if (cancelQuantity <= activeTicket.getTicketsBought()) {
                                         update(activeTicket, cancelQuantity);
                                         //reduce number of registered activities
-                                    } else if (cancelQuantity < activeTicket.getTicketsBought()) {
-                                        update(activeTicket, cancelQuantity);
                                     } else {
                                         System.out.println("You have requested a cancellation for more tickets than are available.");
                                         System.out.println("Please affirm the quantity and try again.");
-                                        break; //note, may change this section to a while loop. have boolean set at top and this way clerk doesn't have to runthrough all the toptions again
+                                        break; //note, may change this section to a while loop. have boolean set at top and this way clerk doesn't have to run through all the toptions again
                                     }
 
                                 } catch (InputMismatchException e) {
@@ -268,14 +254,11 @@ public class MainProgram {
                 print(ticketActivityName, ticketsBought, availableTickets);
                 checkComplete = true;
                 return ticketsAvailable;
-                //write this to letters.txt
             } else if (ticketsBought == 1) {
-                //System.out.println("You have purchased " + ticketsBought + " ticket for " + ticketActivityName + ".");
                 ticketsAvailable = true;
                 checkComplete = true;
                 return ticketsAvailable;
             } else if (ticketsBought > 1) {
-                //System.out.println("You have purchased " + ticketsBought + " tickets for " + ticketActivityName + ".");
                 ticketsAvailable = true;
                 checkComplete = true;
                 return ticketsAvailable;
