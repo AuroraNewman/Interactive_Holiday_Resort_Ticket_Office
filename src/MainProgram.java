@@ -100,6 +100,11 @@ public class MainProgram {
                                 System.out.println("Please check your input and try again. Thank you.");
                             }
                             if (nameCheck && numberActivitiesCheck && activityCheck && ticketNumberCheck) {
+                                //store ticket in ticket office
+                                TicketOffice.getListOfTickets().add(activeTicket);
+                                for (Ticket t : TicketOffice.getListOfTickets()) {
+                                    System.out.println(Ticket.toString(t));
+                                }
                                 checkSuccessful = true;
                             } else if (!checkSuccessful) {
                                 System.out.println("Please try again. Thank you.");
@@ -113,11 +118,7 @@ public class MainProgram {
                             activeTicket.setTicketsBought(ticketsBought);
                             System.out.println("Active ticket in main");
                             System.out.println(Ticket.toString(activeTicket));
-                            //store ticket in ticket office
-                            TicketOffice.getListOfTickets().add(activeTicket);
-                            for (Ticket t : TicketOffice.getListOfTickets()) {
-                                System.out.println(Ticket.toString(t));
-                            }
+
                             boolean updateComplete = update(activeTicket, ticketsBought);
                             System.out.println("update complete? " + updateComplete);
                             System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + activeCustomer.getRegisteredTickets() + " activities.");
@@ -346,3 +347,4 @@ public class MainProgram {
 //TODO: if someone mistypes a name, they still have to enter the activity and #tickets before returning to the main menu.
 //TODO: check the update of the tickets for the user vs tickets available for activity
 //TODO: consider if a customer wants to purchase additional tickets for an activity for which they are already registered. current code adds on an additional registered activity.
+//TODO: might consider rolling back to going through ticket array list and looking for the customer name on the ticket. if so, must add a compare to for the tickets

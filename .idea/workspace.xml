@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't fucking updating">
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't updating">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TicketOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketOffice.java" afterDir="false" />
     </list>
@@ -44,6 +42,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
@@ -58,6 +57,17 @@
     <configuration name="MainProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainProgram" />
       <module name="summative coursework 8012" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,7 +95,11 @@
       <workItem from="1667830760481" duration="21858000" />
       <workItem from="1667908014721" duration="14121000" />
       <workItem from="1667931871858" duration="12381000" />
-      <workItem from="1668088905800" duration="8814000" />
+      <workItem from="1668088905800" duration="11607000" />
+      <workItem from="1668160066712" duration="232000" />
+      <workItem from="1668160314011" duration="11000" />
+      <workItem from="1668160334810" duration="38000" />
+      <workItem from="1668160374990" duration="379000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -178,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668098432907</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't updating">
+      <created>1668112709035</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668112709035</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +228,7 @@
     <MESSAGE value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket." />
     <MESSAGE value="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't fucking updating" />
-    <option name="LAST_COMMIT_MESSAGE" value="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't fucking updating" />
+    <MESSAGE value="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't updating" />
+    <option name="LAST_COMMIT_MESSAGE" value="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't updating" />
   </component>
 </project>

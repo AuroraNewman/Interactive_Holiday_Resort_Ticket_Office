@@ -17,7 +17,6 @@ public class TicketOffice extends ArrayList {
     public static SortedArrayList<Customer> getCustomerList() {
         return customerList;
     }
-
     public SortedArrayList<Customer> addCustomer(Customer c) {
         customerList.add(c);
         return customerList;
@@ -36,9 +35,9 @@ public class TicketOffice extends ArrayList {
         return listOfTickets;
     }
 
-    public void addTicket(Ticket t) {
+    public ArrayList<Ticket> addTicket(Ticket t) {
         listOfTickets.add(t);
-        //return listOfTickets;
+        return listOfTickets;
     }
 
     public static SortedArrayList<Activity> readActivitiesFile() {
