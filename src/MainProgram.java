@@ -295,7 +295,7 @@ public class MainProgram {
                 throw new RuntimeException(e);
             }
 
-        outFile.write("A customer attempted to buy " + ticketsBought + " for " + ticketActivityName + " but only " + availableTickets + " are available.");
+        outFile.write("A customer attempted to buy " + ticketsBought + " for " + ticketActivityName + " but only " + availableTickets + " tickets are available.");
         outFile.close();
     }
     private static boolean update(Ticket t, int ticketsBought){
