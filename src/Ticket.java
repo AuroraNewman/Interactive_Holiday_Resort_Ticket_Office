@@ -35,6 +35,11 @@ public class Ticket {
         this.ticketsBought= ticketsBought;
     }
     public static String toString(Ticket t){
-        return t.getTicketCustomer().getFirstName() + " " + t.getTicketCustomer().getLastName() + " has purchased " + t.getTicketsBought() + " tickets for the activity " + t.ticketActivityName + ".";
+        if (t.getTicketsBought()==1){
+            return t.getTicketCustomer().getFirstName() + " " + t.getTicketCustomer().getLastName() + " has purchased " + t.getTicketsBought() + " ticket for the activity " + t.ticketActivityName + ".";
+
+        } else {
+            return t.getTicketCustomer().getFirstName() + " " + t.getTicketCustomer().getLastName() + " has purchased " + t.getTicketsBought() + " tickets for the activity " + t.ticketActivityName + ".";
+        }
     }
 }

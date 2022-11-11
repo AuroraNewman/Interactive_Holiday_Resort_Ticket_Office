@@ -19,13 +19,10 @@ public class MainProgram {
         TicketOffice.readCustomersFile();
         customers = TicketOffice.getCustomerList();
         customers.sortArrayList(customers);
-        Customer c = new Customer("Alpha", "Bet", 0);
-        customers.add(c);
-        //System.out.println(c);
 
         boolean done = false;
         Customer activeCustomer = new Customer();
-        String ticketActivityName = new String();
+        String ticketActivityName = "";
         int ticketQuantity = 0;
         Ticket activeTicket = new Ticket(activeCustomer, ticketActivityName, ticketQuantity);
         while (!done) {
@@ -97,13 +94,16 @@ public class MainProgram {
                                     break;
                                 }
                                 if (nameCheck && numberActivitiesCheck && activityCheck && ticketNumberCheck) {
-                                    //store ticket in ticket office
+                                    activeTicket.setTicketCustomer(activeCustomer);
+                                    activeTicket.setTicketActivityName(ticketActivityName);
+                                    activeTicket.setTicketsBought(ticketsBought);
+                                    System.out.println(Ticket.toString(activeTicket));
                                     TicketOffice.getListOfTickets().add(activeTicket);
-                                    for (Ticket t : TicketOffice.getListOfTickets()) {
-                                        System.out.println(Ticket.toString(t));
-                                    }
+                                    boolean updateComplete = update(activeTicket, ticketsBought);
+                                    System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + activeCustomer.getRegisteredTickets() + " activities.");
+                                    tComplete = true;
                                     checkSuccessful = true;
-                                } else if (!checkSuccessful) {
+                                } else {
                                     System.out.println("Please try again. Thank you.");
                                 }
                             } catch (InputMismatchException e) {
@@ -113,22 +113,16 @@ public class MainProgram {
                                 System.out.println("Please check your input and try again. Thank you.");
                             }
                                 break;
-                            }
-                            System.out.println("at end of main in t:");
+                            }/* this is updating the number of available tickets even if there are insufficient tickets, so moving it above
                             activeTicket.setTicketCustomer(activeCustomer);
-                            System.out.println("ticketActivityName " + ticketActivityName);
                             activeTicket.setTicketActivityName(ticketActivityName);
-                            System.out.println("ticketsBought " + ticketsBought);
                             activeTicket.setTicketsBought(ticketsBought);
-                            System.out.println("Active ticket in main");
                             System.out.println(Ticket.toString(activeTicket));
-
+                        TicketOffice.getListOfTickets().add(activeTicket);
                             boolean updateComplete = update(activeTicket, ticketsBought);
-                            System.out.println("update complete? " + updateComplete);
                             System.out.println(activeCustomer.getFirstName() + " " + activeCustomer.getLastName() + " has registered for " + activeCustomer.getRegisteredTickets() + " activities.");
-                            System.out.println("Check to see this customer has a registered activity");
-                            System.out.println(activeCustomer.toString());
                             tComplete = true;
+                            */
                         break;
                     case "r": //Update info after ticket canceled.
                         boolean rComplete = false;
@@ -257,9 +251,6 @@ public class MainProgram {
                 matchActivity=true;
             }
         }
-        if (!matchActivity) {
-            System.out.println("This is not on our list of activities. Please check the activity and try again.");
-        }
         return matchActivity;
     }
     //check sufficient tickets
@@ -271,23 +262,30 @@ public class MainProgram {
                 availableTickets = activities.get(i).getTicketsAvailable();
             }
         }
-        if (ticketsBought > availableTickets) {
-            print(ticketActivityName, ticketsBought, availableTickets);
-            System.out.println("Sorry, there are insufficient available tickets. Please choose another activity.");
-            return ticketsAvailable;
+        boolean checkComplete = false;
+        while (!checkComplete) {
+            if (ticketsBought > availableTickets) {
+                print(ticketActivityName, ticketsBought, availableTickets);
+                checkComplete = true;
+                return ticketsAvailable;
                 //write this to letters.txt
-        } else if (ticketsBought == 1) {
-            System.out.println("You have purchased " + ticketsBought + " ticket for " + ticketActivityName + ".");
-            ticketsAvailable = true;
-            return ticketsAvailable;
-        } else if (ticketsBought > 1) {
-            System.out.println("You have purchased " + ticketsBought + " tickets for " + ticketActivityName + ".");
-            ticketsAvailable = true;
-            return ticketsAvailable;
-        } else {
-            System.out.println("Please enter a valid number of tickets. Thank you.");
-            return ticketsAvailable;
+            } else if (ticketsBought == 1) {
+                //System.out.println("You have purchased " + ticketsBought + " ticket for " + ticketActivityName + ".");
+                ticketsAvailable = true;
+                checkComplete = true;
+                return ticketsAvailable;
+            } else if (ticketsBought > 1) {
+                //System.out.println("You have purchased " + ticketsBought + " tickets for " + ticketActivityName + ".");
+                ticketsAvailable = true;
+                checkComplete = true;
+                return ticketsAvailable;
+            } else {
+                System.out.println("Please enter a valid number of tickets. Thank you.");
+                checkComplete = true;
+                return ticketsAvailable;
+            }
         }
+        return ticketsAvailable;
     }
     private static void print(String ticketActivityName, int ticketsBought, int availableTickets){
         PrintWriter outFile;
@@ -304,9 +302,6 @@ public class MainProgram {
         boolean updateComplete = false;
         Customer c = t.getTicketCustomer();
         String ticketActivityName =t.getTicketActivityName();
-        System.out.println("in update method");
-        System.out.println(Ticket.toString(t));
-
         //update the available tickets for the activity:
         //this works for buying or returning
         for (int i = 0; i < activities.size(); i++) {
@@ -315,8 +310,7 @@ public class MainProgram {
                 int ticketsAvailable = a.getTicketsAvailable();
                 ticketsAvailable -= ticketsBought;
                 a.setTicketsAvailable(ticketsAvailable);
-                System.out.println("Remaining available tickets: " + ticketsAvailable);
-                //updateComplete=true;
+                System.out.println("Remaining tickets available for " + ticketActivityName + ": " + ticketsAvailable);
             }
         }
         //update number of activities for which customer has registered
@@ -326,7 +320,7 @@ public class MainProgram {
             c.setRegisteredTickets(numberRegisteredActivities);
             updateComplete = true;
             return updateComplete;
-            //for this, we want to know if the customer is returning all of the tickets they bought for that activity
+            //for this, we want to know if the customer is returning all the tickets they bought for that activity
         } else if (ticketsBought < 0 && (-ticketsBought) == t.getTicketsBought()) {
             int numberRegisteredActivities = c.getRegisteredTickets();
             numberRegisteredActivities--;
@@ -340,26 +334,8 @@ public class MainProgram {
         }
         return updateComplete;
     }
-    /* i want to return the ticket but only the good one, so I am moving this to main
-    private static Ticket checkTicketForCancellation(Customer c, String ticketActivityName) {
-        //boolean ticketValid = false;
-        ArrayList<Ticket> tickets = TicketOffice.getListOfTickets();
-        for (Ticket t : tickets) {
-            int nameMatch = t.getTicketCustomer().compareTo(c);
-            if (nameMatch == 0) {
-                int activityMatch = t.getTicketActivityName().compareTo(ticketActivityName);
-                if (activityMatch == 0) {
-                    return t;
-                }
-            }
-        }
-        //return ticketValid;
-    }
-
-     */
 }
-//TODO: method checkTicketQuantity should write to the letters text file
-//TODO: if someone mistypes a name, they still have to enter the activity and #tickets before returning to the main menu.
-//TODO: check the update of the tickets for the user vs tickets available for activity
+
 //TODO: consider if a customer wants to purchase additional tickets for an activity for which they are already registered. current code adds on an additional registered activity.
-//TODO: might consider rolling back to going through ticket array list and looking for the customer name on the ticket. if so, must add a compare to for the tickets
+//TODO: might consider having a final step of the update where it looks at all activities for that customer and, if it finds multiple with the same customer, merge them. (ask Dr. D)
+//TODO: just had customer buy tickets for two different activities. it canceled the wrong ticket. fix this.
