@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't updating">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clerk.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clerk.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/letters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/letters.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TicketOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketOffice.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +103,8 @@
       <workItem from="1668160314011" duration="11000" />
       <workItem from="1668160334810" duration="38000" />
       <workItem from="1668160374990" duration="379000" />
+      <workItem from="1668176359191" duration="5198000" />
+      <workItem from="1668182176343" duration="1149000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>

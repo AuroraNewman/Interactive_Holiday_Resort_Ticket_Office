@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,14 +19,15 @@ public class MainProgram {
         TicketOffice.readCustomersFile();
         customers = TicketOffice.getCustomerList();
         customers.sortArrayList(customers);
-        Customer c = new Customer("Alpha", "Bet", 1);
-        c.setRegisteredTickets(5);
-        System.out.println(c);
+        Customer c = new Customer("Alpha", "Bet", 0);
+        customers.add(c);
+        //System.out.println(c);
 
         boolean done = false;
-        Ticket activeTicket = new Ticket();
         Customer activeCustomer = new Customer();
         String ticketActivityName = new String();
+        int ticketQuantity = 0;
+        Ticket activeTicket = new Ticket(activeCustomer, ticketActivityName, ticketQuantity);
         while (!done) {
             //Customer activeCustomer = new Customer();
             //String ticketActivityName = new String();
@@ -67,7 +70,7 @@ public class MainProgram {
                                 if (checkName(activeCustomer)) {
                                     nameCheck = true;
                                 } else if (!checkName(activeCustomer)) {
-                                    System.out.println("You have entered an invalid name. Please try again.");
+                                    System.out.println("This name is invalid. Please try again.");
                                     break;
                                 }
                                 if (checkNumberActivities(activeCustomer)) {
@@ -93,21 +96,22 @@ public class MainProgram {
                                     System.out.println("There are not enough tickets available. Please choose a different activity or quantity.");
                                     break;
                                 }
+                                if (nameCheck && numberActivitiesCheck && activityCheck && ticketNumberCheck) {
+                                    //store ticket in ticket office
+                                    TicketOffice.getListOfTickets().add(activeTicket);
+                                    for (Ticket t : TicketOffice.getListOfTickets()) {
+                                        System.out.println(Ticket.toString(t));
+                                    }
+                                    checkSuccessful = true;
+                                } else if (!checkSuccessful) {
+                                    System.out.println("Please try again. Thank you.");
+                                }
                             } catch (InputMismatchException e) {
                                 System.out.println("Please enter a valid option.");
                             }
                             catch (IndexOutOfBoundsException f) {
                                 System.out.println("Please check your input and try again. Thank you.");
                             }
-                            if (nameCheck && numberActivitiesCheck && activityCheck && ticketNumberCheck) {
-                                //store ticket in ticket office
-                                TicketOffice.getListOfTickets().add(activeTicket);
-                                for (Ticket t : TicketOffice.getListOfTickets()) {
-                                    System.out.println(Ticket.toString(t));
-                                }
-                                checkSuccessful = true;
-                            } else if (!checkSuccessful) {
-                                System.out.println("Please try again. Thank you.");
                                 break;
                             }
                             System.out.println("at end of main in t:");
@@ -125,7 +129,6 @@ public class MainProgram {
                             System.out.println("Check to see this customer has a registered activity");
                             System.out.println(activeCustomer.toString());
                             tComplete = true;
-                        }
                         break;
                     case "r": //Update info after ticket canceled.
                         boolean rComplete = false;
@@ -269,21 +272,33 @@ public class MainProgram {
             }
         }
         if (ticketsBought > availableTickets) {
-                //System.out.println("Sorry, there are insufficient available tickets. Please choose another activity.");
-                return ticketsAvailable;
+            print(ticketActivityName, ticketsBought, availableTickets);
+            System.out.println("Sorry, there are insufficient available tickets. Please choose another activity.");
+            return ticketsAvailable;
                 //write this to letters.txt
-            } else if (ticketsBought == 1) {
-                System.out.println("You have purchased " + ticketsBought + " ticket for " + ticketActivityName + ".");
-                ticketsAvailable = true;
-                return ticketsAvailable;
-            } else if (ticketsBought > 1) {
-                System.out.println("You have purchased " + ticketsBought + " tickets for " + ticketActivityName + ".");
-                ticketsAvailable = true;
-                return ticketsAvailable;
-            } else {
-                System.out.println("Please enter a valid number of tickets. Thank you.");
-                return ticketsAvailable;
+        } else if (ticketsBought == 1) {
+            System.out.println("You have purchased " + ticketsBought + " ticket for " + ticketActivityName + ".");
+            ticketsAvailable = true;
+            return ticketsAvailable;
+        } else if (ticketsBought > 1) {
+            System.out.println("You have purchased " + ticketsBought + " tickets for " + ticketActivityName + ".");
+            ticketsAvailable = true;
+            return ticketsAvailable;
+        } else {
+            System.out.println("Please enter a valid number of tickets. Thank you.");
+            return ticketsAvailable;
+        }
+    }
+    private static void print(String ticketActivityName, int ticketsBought, int availableTickets){
+        PrintWriter outFile;
+            try {
+                outFile = new PrintWriter("letters.txt");
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
             }
+
+        outFile.write("A customer attempted to buy " + ticketsBought + " for " + ticketActivityName + " but only " + availableTickets + " are available.");
+        outFile.close();
     }
     private static boolean update(Ticket t, int ticketsBought){
         boolean updateComplete = false;

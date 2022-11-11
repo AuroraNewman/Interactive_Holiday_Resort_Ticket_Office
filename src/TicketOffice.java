@@ -86,8 +86,8 @@ public class TicketOffice extends ArrayList {
                     String separated[] = name.split(" ");
                     String firstName = separated[0];
                     String lastName = separated[1];
-                    int ticketsBought=0;
-                    Customer c = new Customer(firstName, lastName, ticketsBought);
+                    int registeredActivities=0;
+                    Customer c = new Customer(firstName, lastName, registeredActivities);
                     customerList.add(c);
                 }
             }
