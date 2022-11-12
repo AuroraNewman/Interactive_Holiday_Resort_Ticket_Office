@@ -421,3 +421,4 @@ public class MainProgram {
 // a a returns 4 ticket for a. (8 tickets remaining) a a returns 4 ticket for a. (12 tickets remaining)
 //now i bought two tickets (one for 2, one for 3) and it says that there's a total of six tickets possible to return
 //TODO: FIGURE OUT why cancellations are so fucked up
+//TODO: printing out customer is not showing the number registered activities they have
