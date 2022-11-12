@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="deleted extraneous commented out lines of code">
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="work on plane; also fixed the switch options as they were formatted as strings instead of chars">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/letters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/letters.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortedArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortedArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ticket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +103,7 @@
       <workItem from="1668176359191" duration="5198000" />
       <workItem from="1668182176343" duration="4881000" />
       <workItem from="1668261070828" duration="1419000" />
-      <workItem from="1668262519863" duration="5707000" />
+      <workItem from="1668262519863" duration="8657000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -234,7 +231,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668194586241</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="work on plane; also fixed the switch options as they were formatted as strings instead of chars">
+      <created>1668283322177</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668283322177</updated>
+    </task>
+    <task id="LOCAL-00020" summary="work on plane; also fixed the switch options as they were formatted as strings instead of chars">
+      <created>1668283403961</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668283403961</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +278,7 @@
     <MESSAGE value="wrote letters to clerk notifying insufficient quantity. number of registered activities IS updating" />
     <MESSAGE value="finding more bugs in the todo list" />
     <MESSAGE value="deleted extraneous commented out lines of code" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted extraneous commented out lines of code" />
+    <MESSAGE value="work on plane; also fixed the switch options as they were formatted as strings instead of chars" />
+    <option name="LAST_COMMIT_MESSAGE" value="work on plane; also fixed the switch options as they were formatted as strings instead of chars" />
   </component>
 </project>

@@ -4,12 +4,15 @@ public class Customer implements Comparable<Customer> {
     private String firstName;
     private String lastName;
     private int registeredTickets;
-
+/*
     public Customer() {
         firstName="";
         lastName="";
         registeredTickets=0;
     }
+
+ */
+
     public Customer(String name1, String name2, int numberTickets) {
         firstName=name1;
         lastName=name2;

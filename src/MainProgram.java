@@ -9,7 +9,6 @@ import static java.lang.Integer.parseInt;
 public class MainProgram {
     static final int MAX_NUMBER_ACTIVITIES_ALLOWED = 3;
     private static SortedArrayList<Activity> activities;
-    private static SortedArrayList<Customer> customers;
     //private static ArrayList<Ticket> tickets;
 
     public static void main(String[] args) {
@@ -17,11 +16,10 @@ public class MainProgram {
         activities = TicketOffice.getActivityArrayList();
         SortedArrayList.sortArrayList(activities);
         TicketOffice.readCustomersFile();
-        customers = TicketOffice.getCustomerList();
-        SortedArrayList.sortArrayList(customers);
+        SortedArrayList.sortArrayList(TicketOffice.getCustomerList());
 
         boolean done = false;
-        Customer activeCustomer = new Customer();
+        Customer activeCustomer = new Customer("", "", 0);
         String ticketActivityName = "";
         int ticketQuantity = 0;
         Ticket activeTicket = new Ticket(activeCustomer, ticketActivityName, ticketQuantity);
@@ -31,6 +29,7 @@ public class MainProgram {
             try {
                 Scanner userInput = new Scanner(System.in);
                 char option = userInput.next().charAt(0);
+                //to make it only accept correct answer, make it .equals to the various options or else goodbye
                 switch (option) {
                     case 'f': //User exits the program.
                     case 'F':
@@ -43,7 +42,7 @@ public class MainProgram {
                         break;
                     case 'c': //Display customer information.
                     case 'C':
-                        for (Customer cust : customers)
+                        for (Customer cust : TicketOffice.getCustomerList())
                             System.out.println(cust);
                         break;
                     case 't': //Update info after clerk sells ticket.
@@ -141,6 +140,11 @@ public class MainProgram {
                                     System.out.println("You have entered an invalid name. Please try again.");
                                     break;
                                 }
+                                for (Customer c : TicketOffice.getCustomerList()){
+                                    if (activeCustomer.compareTo(c)==0){
+                                     activeCustomer=c;
+                                    }
+                                }
                                 //check activity name is valid.
                                 System.out.println("Please enter the activity to be cancelled.");
                                 ticketActivityName = input.nextLine();
@@ -212,7 +216,7 @@ public class MainProgram {
     private static boolean checkName(Customer activeCustomer){
         boolean matchCustomer = false;
         //check customer match
-        for (Customer cust : customers) {
+        for (Customer cust : TicketOffice.getCustomerList()) {
             if (cust.compareTo(activeCustomer) == 0) {
                 matchCustomer = true;
                 System.out.println(cust.getFirstName() + " " + cust.getLastName() + " is a valid name.");
@@ -422,3 +426,5 @@ public class MainProgram {
 //now i bought two tickets (one for 2, one for 3) and it says that there's a total of six tickets possible to return
 //TODO: FIGURE OUT why cancellations are so fucked up
 //TODO: printing out customer is not showing the number registered activities they have
+//this isn't working because it's modifying the active customer object instead of the one I want.
+//try setting active customer equal to a a
