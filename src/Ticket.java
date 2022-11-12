@@ -42,4 +42,16 @@ public class Ticket {
             return t.getTicketCustomer().getFirstName() + " " + t.getTicketCustomer().getLastName() + " has purchased " + t.getTicketsBought() + " tickets for the activity " + t.ticketActivityName + ".";
         }
     }
+    public int compareTo(Ticket ticket) {
+        int nameCompare = getTicketCustomer().compareTo(ticket.getTicketCustomer());
+        int activityCompare = getTicketActivityName().compareTo(ticket.getTicketActivityName());
+        if (nameCompare == 0 && activityCompare == 0) {
+            return nameCompare;
+        } else if (nameCompare !=0) {
+            return nameCompare;
+        } else {
+            return activityCompare;
+        }
+        //return activityCompare;
+    }
 }

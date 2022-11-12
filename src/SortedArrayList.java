@@ -15,7 +15,7 @@ You should be able to find some clues to help you answer this question by lookin
 import java.util.ArrayList;
 
 public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList<E>{
-       public <E extends Comparable<? super E>> void sortArrayList(ArrayList<E> sortableList) {
+       public static <E extends Comparable<? super E>> void sortArrayList(ArrayList<E> sortableList) {
         for (int i = 1; i < sortableList.size(); i++) {
             E value = sortableList.get(i);
             int j;

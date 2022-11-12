@@ -1,6 +1,6 @@
 6
 a
-4
+10
 Bowling
 8
 Cycling
