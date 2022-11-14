@@ -50,6 +50,7 @@ public class Ticket {
         } else if (nameCompare !=0) {
             return nameCompare;
         } else {
+            activityCompare=-1;
             return activityCompare;
         }
         //return activityCompare;

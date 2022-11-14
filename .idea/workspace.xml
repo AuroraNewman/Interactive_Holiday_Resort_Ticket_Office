@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original.&#10;&#10;Fix the sorting so it works by insertion">
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="this is a fucking mess. i moved the inputfile to a new method below the main, but i have a few comments with direction of how to set various vars">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ticket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +19,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -40,9 +37,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -74,16 +72,9 @@
       <updated>1667307759042</updated>
       <workItem from="1667307760478" duration="2837000" />
       <workItem from="1667555659985" duration="5241000" />
-      <workItem from="1667565174327" duration="2597000" />
-      <workItem from="1667573100140" duration="6094000" />
-      <workItem from="1667674494710" duration="6759000" />
-      <workItem from="1667753352000" duration="11238000" />
-      <workItem from="1667830760481" duration="21858000" />
-      <workItem from="1667908014721" duration="14121000" />
-      <workItem from="1667931871858" duration="12381000" />
-      <workItem from="1668429013863" duration="167000" />
-      <workItem from="1668429182969" duration="9189000" />
-      <workItem from="1668438625958" duration="1199000" />
+      <workItem from="1667565174327" duration="2718000" />
+      <workItem from="1668440470813" duration="194000" />
+      <workItem from="1668440667914" duration="4650000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -106,77 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667560270042</updated>
     </task>
-    <task id="LOCAL-00004" summary="implemented comparable interfaces; wept tears of frustration; starting to maybe sorta kinda come together idk">
-      <created>1667768908293</created>
+    <task id="LOCAL-00004" summary="this is a fucking mess. i moved the inputfile to a new method below the main, but i have a few comments with direction of how to set various vars">
+      <created>1667568337467</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1667768908293</updated>
+      <updated>1667568337467</updated>
     </task>
-    <task id="LOCAL-00005" summary="got the SortedArrayList working">
-      <created>1667840310450</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1667840310450</updated>
-    </task>
-    <task id="LOCAL-00006" summary="moved readfile methods to main">
-      <created>1667841151492</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1667841151492</updated>
-    </task>
-    <task id="LOCAL-00007" summary="commented out nonessential methods on main">
-      <created>1667841766975</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1667841766975</updated>
-    </task>
-    <task id="LOCAL-00008" summary="finished menu parts f, a, c, and the check parts of t. must use this to modify the number of tickets available for t. must set the insufficient tickets message to print to letters.txt. must do all of r">
-      <created>1667857035351</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1667857035351</updated>
-    </task>
-    <task id="LOCAL-00009" summary="finished menu parts f, a, c, and the check parts of t. set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r">
-      <created>1667858021274</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1667858021274</updated>
-    </task>
-    <task id="LOCAL-00010" summary="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r">
-      <created>1667925986129</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1667925986129</updated>
-    </task>
-    <task id="LOCAL-00011" summary="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket.">
-      <created>1667934638344</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1667934638344</updated>
-    </task>
-    <task id="LOCAL-00012" summary="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket.">
-      <created>1667934881428</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1667934881428</updated>
-    </task>
-    <task id="LOCAL-00013" summary="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original.&#10;&#10;Fix the sorting so it works by insertion">
-      <created>1668436360625</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1668436360625</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,16 +124,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="made the classes and input the file." />
     <MESSAGE value="made a reader to read in the file and made array lists for customer names, activity names, and number tickets available. I think I'll need to change it all later." />
-    <MESSAGE value="implemented comparable interfaces; wept tears of frustration; starting to maybe sorta kinda come together idk" />
-    <MESSAGE value="got the SortedArrayList working" />
-    <MESSAGE value="moved readfile methods to main" />
-    <MESSAGE value="commented out nonessential methods on main" />
-    <MESSAGE value="finished menu parts f, a, c, and the check parts of t. must use this to modify the number of tickets available for t. must set the insufficient tickets message to print to letters.txt. must do all of r" />
-    <MESSAGE value="finished menu parts f, a, c, and the check parts of t. set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
-    <MESSAGE value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
-    <MESSAGE value="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket." />
-    <MESSAGE value="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original." />
-    <MESSAGE value="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original.&#10;&#10;Fix the sorting so it works by insertion" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original.&#10;&#10;Fix the sorting so it works by insertion" />
+    <MESSAGE value="this is a fucking mess. i moved the inputfile to a new method below the main, but i have a few comments with direction of how to set various vars" />
+    <option name="LAST_COMMIT_MESSAGE" value="this is a fucking mess. i moved the inputfile to a new method below the main, but i have a few comments with direction of how to set various vars" />
   </component>
 </project>
