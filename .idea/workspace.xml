@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket.">
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original.&#10;&#10;Fix the sorting so it works by insertion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortedArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortedArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TicketOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketOffice.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +83,7 @@
       <workItem from="1667908014721" duration="14121000" />
       <workItem from="1667931871858" duration="12381000" />
       <workItem from="1668429013863" duration="167000" />
-      <workItem from="1668429182969" duration="6899000" />
+      <workItem from="1668429182969" duration="9189000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -172,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667934881428</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original.&#10;&#10;Fix the sorting so it works by insertion">
+      <created>1668436360625</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668436360625</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +204,8 @@
     <MESSAGE value="finished menu parts f, a, c, and the check parts of t. set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket." />
-    <option name="LAST_COMMIT_MESSAGE" value="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket." />
+    <MESSAGE value="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original." />
+    <MESSAGE value="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original.&#10;&#10;Fix the sorting so it works by insertion" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original.&#10;&#10;Fix the sorting so it works by insertion" />
   </component>
 </project>
