@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Customer implements Comparable<Customer> {
     private String firstName;
     private String lastName;
-    private int registeredTickets;
+    private int registeredOrders;
 /*
     public Customer() {
         firstName="";
@@ -13,19 +13,19 @@ public class Customer implements Comparable<Customer> {
 
  */
 
-    public Customer(String name1, String name2, int numberTickets) {
+    public Customer(String name1, String name2, int numberOrders) {
         firstName=name1;
         lastName=name2;
-        registeredTickets=numberTickets;
+        registeredOrders=numberOrders;
     }
     public void setName(String name1, String name2) {
         this.firstName=name1;
         this.lastName=name2;
     }
-    public int getRegisteredTickets(){
-        return registeredTickets;
+    public int getRegisteredOrders(){
+        return registeredOrders;
     }
-    public void setRegisteredTickets(int numberTickets){this.registeredTickets=numberTickets;}
+    public void setRegisteredOrders(int numberOrders){this.registeredOrders=numberOrders;}
     public String getFirstName() {
         return firstName;
     }
@@ -33,11 +33,11 @@ public class Customer implements Comparable<Customer> {
         return lastName;
     }
     public String toString() {
-        if (registeredTickets == 1) {
-            return firstName + " " + lastName + " has registered for " + registeredTickets + " activity.";
+        if (registeredOrders == 1) {
+            return firstName + " " + lastName + " has registered for " + registeredOrders + " activity.";
         }
         else {
-            return firstName + " " + lastName + " has registered for " + registeredTickets + " activities.";
+            return firstName + " " + lastName + " has registered for " + registeredOrders + " activities.";
         }
     }
     public int compareTo(Customer c) {

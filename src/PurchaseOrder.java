@@ -1,4 +1,4 @@
-public class Ticket {
+public class PurchaseOrder {
     private Customer ticketCustomer;
     private String ticketActivityName;
     private int ticketsBought;
@@ -10,7 +10,7 @@ public class Ticket {
     }
 
      */
-    public Ticket(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
+    public PurchaseOrder(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
         this.ticketCustomer=ticketCustomer;
         this.ticketActivityName=ticketActivityName;
         this.ticketsBought=ticketsBought;
@@ -34,17 +34,17 @@ public class Ticket {
     public void setTicketsBought(int ticketsBought){
         this.ticketsBought= ticketsBought;
     }
-    public static String toString(Ticket t){
-        if (t.getTicketsBought()==1){
-            return t.getTicketCustomer().getFirstName() + " " + t.getTicketCustomer().getLastName() + " has purchased " + t.getTicketsBought() + " ticket for the activity " + t.ticketActivityName + ".";
+    public static String toString(PurchaseOrder po){
+        if (po.getTicketsBought()==1){
+            return po.getTicketCustomer().getFirstName() + " " + po.getTicketCustomer().getLastName() + " has purchased " + po.getTicketsBought() + " ticket for the activity " + po.ticketActivityName + ".";
 
         } else {
-            return t.getTicketCustomer().getFirstName() + " " + t.getTicketCustomer().getLastName() + " has purchased " + t.getTicketsBought() + " tickets for the activity " + t.ticketActivityName + ".";
+            return po.getTicketCustomer().getFirstName() + " " + po.getTicketCustomer().getLastName() + " has purchased " + po.getTicketsBought() + " tickets for the activity " + po.ticketActivityName + ".";
         }
     }
-    public int compareTo(Ticket ticket) {
-        int nameCompare = getTicketCustomer().compareTo(ticket.getTicketCustomer());
-        int activityCompare = getTicketActivityName().compareTo(ticket.getTicketActivityName());
+    public int compareTo(PurchaseOrder purchaseOrder) {
+        int nameCompare = getTicketCustomer().compareTo(purchaseOrder.getTicketCustomer());
+        int activityCompare = getTicketActivityName().compareTo(purchaseOrder.getTicketActivityName());
         if (nameCompare == 0 && activityCompare == 0) {
             return nameCompare;
         } else if (nameCompare !=0) {
