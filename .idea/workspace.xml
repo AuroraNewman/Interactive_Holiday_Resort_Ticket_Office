@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="TODO: change name of Ticket class to PurchaseOrder Class.&#10;&#10;Move shit up to the main if it alters the original.&#10;&#10;Fix the sorting so it works by insertion">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,6 +83,7 @@
       <workItem from="1667931871858" duration="12381000" />
       <workItem from="1668429013863" duration="167000" />
       <workItem from="1668429182969" duration="9189000" />
+      <workItem from="1668438625958" duration="1199000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>

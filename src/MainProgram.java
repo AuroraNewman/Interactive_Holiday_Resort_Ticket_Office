@@ -94,7 +94,7 @@ public class MainProgram {
                                 if (nameCheck && numberActivitiesCheck && activityCheck && ticketNumberCheck) {
                                     Ticket activeTicket = new Ticket(customerList.get(customerIndex), ticketActivityName, ticketsBought);
                                     System.out.println(Ticket.toString(activeTicket));
-                                    tickets.add(activeTicket);
+                                    //tickets.add(activeTicket);
                                     boolean updateComplete = update(activeTicket, ticketsBought);
                                     System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredTickets() + " activities.");
                                     tComplete = true;
@@ -325,7 +325,7 @@ public class MainProgram {
                 print(ticketActivityName, ticketsBought, availableTickets);
                 checkComplete = true;
                 return ticketsAvailable;
-            } else if (ticketsBought <=availableTickets>) {
+            } else if (ticketsBought <=availableTickets) {
                 ticketsAvailable = true;
                 checkComplete = true;
                 return ticketsAvailable;
@@ -351,6 +351,7 @@ public class MainProgram {
     private static boolean update(Ticket t, int ticketsBought){
         boolean updateComplete = false;
         Customer c = t.getTicketCustomer();
+        //find correct customer in the customer array list
         int custIndex = 0;
         for (int i = 0; i<customerList.size(); i++){
             if (c.compareTo(customerList.get(i))==0){
@@ -358,9 +359,7 @@ public class MainProgram {
             }
         }
         String ticketActivityName =t.getTicketActivityName();
-        //ArrayList<Ticket> tickets =  TicketOffice.getListOfTickets();
-
-        //if customer has already bought tickets for this activity.
+        //find correct ticket in the ticket array list
         //TODO: THIS IS modifying a copy of the original, not the original itself
         int tickIndex = 0;
         for (int i = 0; i<tickets.size(); i++) {
@@ -370,26 +369,34 @@ public class MainProgram {
                 }
             }
         }
-        int previousTicketQuantity = tickets.get(tickIndex).getTicketsBought();
-        previousTicketQuantity += ticketsBought;
-        tickets.get(tickIndex).setTicketsBought(previousTicketQuantity);
+        //TODO: IF I HAVE TIME, this one is now setting two tickets for the same customer and the same activity if they buy multiple.
+        int previousTicketQuantity;
+        //previousTicketQuantity += ticketsBought;
+        //tickets.get(tickIndex).setTicketsBought(previousTicketQuantity);
+        //so the next loop can run even if there are no valid tickets.
+        if (tickets.size() == 0) {
+            Customer nullCust = new Customer("null", "null", 0);
+            Ticket nullTicket = new Ticket(nullCust, "null", 0);
+            tickets.add(nullTicket);
+
+        }
         for (Ticket compareTicket : tickets) {
-            int comparisonInteger = compareTicket.compareTo(t);
+            int comparisonInteger = compareTicket.compareTo(tickets.get(tickIndex));
             System.out.println("5: " + comparisonInteger);
             if (comparisonInteger == 0) {
-                //update tickets on customer's ticket to reflect more tickets bought
-                int previousTicketQuantity = t.getTicketsBought();
+                //if customer has bought tickets for this activity before
+                //update tickets on customer's purchase order to reflect more tickets bought
+                previousTicketQuantity = tickets.get(tickIndex).getTicketsBought();
                 previousTicketQuantity += ticketsBought;
                 t.setTicketsBought(previousTicketQuantity);
                 //update available tickets in activity list
                 for (int i = 0; i < activities.size(); i++) {
                     if (ticketActivityName.compareTo(activities.get(i).getActivityName()) == 0) {
                         System.out.println("3: " + ticketActivityName);
-                        Activity a = activities.get(i);
-                        int ticketsAvailable = a.getTicketsAvailable();
+                        int ticketsAvailable = activities.get(i).getTicketsAvailable();
                         ticketsAvailable -= ticketsBought;
                         System.out.println("4: " + ticketsAvailable);
-                        a.setTicketsAvailable(ticketsAvailable);
+                        activities.get(i).setTicketsAvailable(ticketsAvailable);
                         System.out.println("Remaining tickets available for " + ticketActivityName + ": " + ticketsAvailable);
                         updateComplete = true;
                         //return updateComplete;
@@ -399,11 +406,10 @@ public class MainProgram {
                 for (int i = 0; i < activities.size(); i++) {
                     if (ticketActivityName.compareTo(activities.get(i).getActivityName()) == 0) {
                         System.out.println("1: " + ticketActivityName);
-                        Activity a = activities.get(i);
-                        int ticketsAvailable = a.getTicketsAvailable();
+                        int ticketsAvailable = activities.get(i).getTicketsAvailable();
                         ticketsAvailable -= ticketsBought;
                         System.out.println("2: " + ticketsAvailable);
-                        a.setTicketsAvailable(ticketsAvailable);
+                        activities.get(i).setTicketsAvailable(ticketsAvailable);
                         System.out.println("Remaining tickets available for " + ticketActivityName + ": " + ticketsAvailable);
                         tickets.add(t);
                     }
