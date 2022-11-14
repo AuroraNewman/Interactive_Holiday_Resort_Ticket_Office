@@ -41,8 +41,8 @@ public class Customer implements Comparable<Customer> {
         }
     }
     public int compareTo(Customer c) {
-        int lastCompare = lastName.compareTo(c.lastName);
+        int lastCompare = lastName.compareTo(c.getLastName());
         if (lastCompare !=0) return lastCompare; //if first comes after second in comparison, return positive; if equal return zero; if second comes after first, return negative
-        return firstName.compareTo(c.firstName);
+        return firstName.compareTo(c.getFirstName());
     }
 }

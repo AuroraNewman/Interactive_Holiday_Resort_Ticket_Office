@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="work on plane; also fixed the switch options as they were formatted as strings instead of chars">
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortedArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortedArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TicketOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicketOffice.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +44,6 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
@@ -57,17 +58,6 @@
     <configuration name="MainProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainProgram" />
       <module name="summative coursework 8012" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -95,15 +85,8 @@
       <workItem from="1667830760481" duration="21858000" />
       <workItem from="1667908014721" duration="14121000" />
       <workItem from="1667931871858" duration="12381000" />
-      <workItem from="1668088905800" duration="11607000" />
-      <workItem from="1668160066712" duration="232000" />
-      <workItem from="1668160314011" duration="11000" />
-      <workItem from="1668160334810" duration="38000" />
-      <workItem from="1668160374990" duration="379000" />
-      <workItem from="1668176359191" duration="5198000" />
-      <workItem from="1668182176343" duration="4881000" />
-      <workItem from="1668261070828" duration="1419000" />
-      <workItem from="1668262519863" duration="8657000" />
+      <workItem from="1668429013863" duration="167000" />
+      <workItem from="1668429182969" duration="6899000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -189,63 +172,7 @@
       <option name="project" value="LOCAL" />
       <updated>1667934881428</updated>
     </task>
-    <task id="LOCAL-00013" summary="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't fucking updating">
-      <created>1668098432907</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1668098432907</updated>
-    </task>
-    <task id="LOCAL-00014" summary="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't updating">
-      <created>1668112709035</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1668112709035</updated>
-    </task>
-    <task id="LOCAL-00015" summary="wrote letters to clerk notifying insufficient quantity. number of registered activities IS updating">
-      <created>1668190536918</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1668190536918</updated>
-    </task>
-    <task id="LOCAL-00016" summary="finding more bugs in the todo list">
-      <created>1668193781791</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1668193781791</updated>
-    </task>
-    <task id="LOCAL-00017" summary="finding more bugs in the todo list">
-      <created>1668193930146</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1668193930146</updated>
-    </task>
-    <task id="LOCAL-00018" summary="deleted extraneous commented out lines of code">
-      <created>1668194586241</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1668194586241</updated>
-    </task>
-    <task id="LOCAL-00019" summary="work on plane; also fixed the switch options as they were formatted as strings instead of chars">
-      <created>1668283322177</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1668283322177</updated>
-    </task>
-    <task id="LOCAL-00020" summary="work on plane; also fixed the switch options as they were formatted as strings instead of chars">
-      <created>1668283403961</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1668283403961</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,12 +200,6 @@
     <MESSAGE value="finished menu parts f, a, c, and the check parts of t. set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket." />
-    <MESSAGE value="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't fucking updating" />
-    <MESSAGE value="have finished t. need to write letters to the clerk for insufficient quantity. number of registered activities still isn't updating" />
-    <MESSAGE value="wrote letters to clerk notifying insufficient quantity. number of registered activities IS updating" />
-    <MESSAGE value="finding more bugs in the todo list" />
-    <MESSAGE value="deleted extraneous commented out lines of code" />
-    <MESSAGE value="work on plane; also fixed the switch options as they were formatted as strings instead of chars" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on plane; also fixed the switch options as they were formatted as strings instead of chars" />
+    <option name="LAST_COMMIT_MESSAGE" value="i'm going to try combining the check customer, check activity, and check ticket buying into one giant method and have it return one ticket." />
   </component>
 </project>

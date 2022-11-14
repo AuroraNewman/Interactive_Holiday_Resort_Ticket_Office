@@ -31,3 +31,10 @@ public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList
             }
         }
 }
+/*
+@Override
+    public boolean add(E e) {
+        return super.add(e);
+    }
+//TODO: make an implementation of sorted array list that takes in an add and puts it in the correct order instead of taking a list and sorting it.
+ */
