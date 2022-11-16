@@ -25,13 +25,12 @@ public class MainProgram {
         while (!done) {
             printMenu();
             try {
+                char option = 0;
                 Scanner userInput = new Scanner(System.in);
-                char option = userInput.next().charAt(0);
-                if (option == ('f') || option == ('a') || option == ('c') || option == ('t') || option == ('r') ||
-                    option == ('F') || option == ('A') || option == ('C') || option == ('T') || option == ('R') ) {
-
-                } else {
-                    break;
+                String entry = userInput.next();                
+                if (entry.equals("f") || entry.equals("a") || entry.equals("c") || entry.equals("t") || entry.equals("r") ||
+                        entry.equals("F") || entry.equals("A") || entry.equals("C") || entry.equals("T") || entry.equals("R") ) {
+                    option = entry.charAt(0);
                 }
                 //TODO: to make it only accept correct answer, make it .equals to the various options or else goodbye
                 switch (option) {
@@ -70,7 +69,7 @@ public class MainProgram {
                                 if (checkName(firstName, lastName)) {
                                     nameCheck = true;
                                 } else {
-                                    System.out.println("This name is invalid. Please try again.");
+                                    //System.out.println("This name is invalid. Please try again.");
                                     break;
                                 }
                                 int customerIndex = findCustomerIndex(firstName, lastName);
@@ -92,33 +91,33 @@ public class MainProgram {
                                 }
                                 System.out.println("Please enter the number of tickets to be bought.");
                                 int ticketsBought = input.nextInt();
-                                if (checkSufficientTickets(ticketActivityName, ticketsBought)) {
+                                if (checkSufficientTickets(ticketActivityName, ticketsBought, firstName, lastName)) {
                                     ticketNumberCheck = true;
-                                } else if (!checkSufficientTickets(ticketActivityName, ticketsBought)) {
+                                } else if (!checkSufficientTickets(ticketActivityName, ticketsBought, firstName, lastName)) {
                                     System.out.println("There are not enough tickets available. Please choose a different activity or quantity.");
                                     break;
                                 }
                                 if (nameCheck && numberActivitiesCheck && activityCheck && ticketNumberCheck) {
                                     boolean previouslyPurchased = false;
                                     PurchaseOrder activeOrder = new PurchaseOrder(customerList.get(customerIndex), ticketActivityName, ticketsBought);
+                                    //TODO: consider making this a new method
                                     //if ticket is adding on to previously purchased order
                                     for (PurchaseOrder compareOrder : orders) {
                                         if (compareOrder.compareTo(activeOrder)==0){
                                             previouslyPurchased = true;
                                         } else { //else add the ticket
                                             previouslyPurchased = false;
-                                            System.out.println("tix" + activeOrder);
-                                            orders.add(activeOrder);
                                         }
                                     }
+                                    //orders.add(activeOrder);
                                     if (orders.size() == 0 && !previouslyPurchased) {
                                         orders.add(activeOrder);
+                                    } else if (!previouslyPurchased) {
+                                        orders.add(activeOrder);
                                     }
-                                    System.out.println("Dominic the donkey: " + PurchaseOrder.toString(activeOrder));
                                     boolean updateComplete = update(activeOrder, ticketsBought, previouslyPurchased);
                                     System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activities.");
                                     tComplete = true;
-                                    //checkSuccessful = true;
                                 } else {
                                     System.out.println("Please try again. Thank you.");
                                     break;
@@ -170,6 +169,7 @@ public class MainProgram {
                                 }
                                 //find ticket using customer name and activity name
                                 //check the ticket has the same customer and activity names as input
+                                //TODO: use the gettickindex or whatever to find this
                                 int ticketIndex = 0;
                                 for (int i = 0; i<orders.size(); i++) {
                                     int nameMatch = orders.get(i).getTicketCustomer().compareTo(customerList.get(customerIndex));
@@ -223,7 +223,6 @@ public class MainProgram {
         String text;
         int numberCustomers;
         int numberActivities = 0;
-        //SortedArrayList<Activity> activityArrayList;
         try {
             Scanner inFile = new Scanner(new FileReader("input.txt"));
             while (inFile.hasNextLine()) {
@@ -234,7 +233,7 @@ public class MainProgram {
                     Activity activity1 = new Activity(activityName, ticketsAvailable);
                     activities.add(activity1);
                 }
-                //try removing this bit
+                //TODO: try removing this bit
                 numberCustomers = parseInt(inFile.nextLine());
                 for (int j = 0; j < numberCustomers; j++) {
                     text = inFile.nextLine();
@@ -249,7 +248,6 @@ public class MainProgram {
     public static void readCustomersFile() {
         int numberCustomers;
         int numberActivities = 0;
-        //SortedArrayList<Customer> customerList;
         try {
             Scanner inFile = new Scanner(new FileReader("input.txt"));
             while (inFile.hasNextLine()) {
@@ -332,7 +330,7 @@ public class MainProgram {
         return matchActivity;
     }
     //check sufficient tickets
-    private static boolean checkSufficientTickets(String ticketActivityName, int ticketsBought) {
+    private static boolean checkSufficientTickets(String ticketActivityName, int ticketsBought, String firstName, String lastName) {
         int availableTickets = 0;
         boolean ticketsAvailable = false;
         for (int i = 0; i < activities.size(); i++) {
@@ -343,7 +341,7 @@ public class MainProgram {
         boolean checkComplete = false;
         while (!checkComplete) {
             if (ticketsBought > availableTickets) {
-                print(ticketActivityName, ticketsBought, availableTickets);
+                print(ticketActivityName, ticketsBought, availableTickets, firstName, lastName);
                 checkComplete = true;
                 return ticketsAvailable;
             } else if (ticketsBought <=availableTickets) {
@@ -358,7 +356,7 @@ public class MainProgram {
         }
         return ticketsAvailable;
     }
-    private static void print(String ticketActivityName, int ticketsBought, int availableTickets){
+    private static void print(String ticketActivityName, int ticketsBought, int availableTickets, String firstName, String lastName){
         PrintWriter outFile;
             try {
                 outFile = new PrintWriter("letters.txt");
@@ -366,82 +364,85 @@ public class MainProgram {
                 throw new RuntimeException(e);
             }
 
-        outFile.write("A customer attempted to buy " + ticketsBought + " tickets for " + ticketActivityName + ", but only " + availableTickets + " tickets are available.");
+        outFile.write("Dear " + firstName + " " + lastName + ",");
+            outFile.write("Thank you for your interest in " + ticketActivityName + ". Unfortunately, there are only " + availableTickets + " tickets available for " + ticketActivityName + " at present. ");
+            outFile.write("We invite you to try another of our activities. ");
+            outFile.write("Sincerely, ");
+            outFile.write("The Samsung Hotel at Geoje.");
         outFile.close();
     }
-    private static boolean update(PurchaseOrder t, int ticketsBought, boolean previouslyPurchased){
-        System.out.println("previouslyPurchased " + previouslyPurchased);
+    private static boolean update(PurchaseOrder po, int ticketsBought, boolean previouslyPurchased){
         boolean updateComplete = false;
         //find correct customer in the customer array list
-        int custIndex = 0;
-        for (int i = 0; i<customerList.size(); i++){
-            if (t.getTicketCustomer().compareTo(customerList.get(i))==0){
-                custIndex=i;
-            }
-        }
-        String ticketActivityName =t.getTicketActivityName();
+        int custIndex = getCustIndex(po);
         //find correct ticket in the ticket array list
-        //TODO: THIS IS modifying a copy of the original, not the original itself
-        //so the next loop can run even if there are no valid tickets.
-
-        int tickIndex = 0;
-        for (int i = 0; i<orders.size(); i++) {
-            for (PurchaseOrder compareTicket : orders) {
-                if (compareTicket.compareTo(t) == 0) {
-                    tickIndex = i;
-                }
+        int poIndex = getPOIndex(po);
+        //if customer is returning all the tickets purchased for an activity
+        if (previouslyPurchased && (-1 * ticketsBought) == po.getTicketsBought()) {
+            updateAvailableTickets(poIndex, ticketsBought);
+            orders.remove(poIndex);
+            updateComplete=true;
+        } else if(previouslyPurchased) {
+            updatePOTickets(poIndex, ticketsBought);
+            //update available tickets in activity list
+            updateAvailableTickets(poIndex, ticketsBought);
+            updateComplete = true;
+        } else if (!previouslyPurchased) { //if this is a new activity for the customer
+            updateAvailableTickets(poIndex, ticketsBought);
+            //update number of activities for which customer has registered
+            if (ticketsBought > 0) {
+                updateNumberPOs(custIndex);
+                updateComplete = true;
             }
         }
-        int previousTicketQuantity;
-        for (PurchaseOrder compareOrder : orders) {
-            if(previouslyPurchased) {
-                //if customer has bought tickets for this activity before
-                //update tickets on customer's purchase order to reflect more tickets bought
-                previousTicketQuantity = orders.get(tickIndex).getTicketsBought();
-                previousTicketQuantity += ticketsBought;
-                orders.get(tickIndex).setTicketsBought(previousTicketQuantity);
-                System.out.println("paddington roasts in ");
-                //update available tickets in activity list
-                for (int i = 0; i < activities.size(); i++) {
-                    if (ticketActivityName.compareTo(activities.get(i).getActivityName()) == 0) {
-                        System.out.println("3: " + ticketActivityName);
-                        int ticketsAvailable = activities.get(i).getTicketsAvailable();
-                        ticketsAvailable -= ticketsBought;
-                        System.out.println("4: " + ticketsAvailable);
-                        activities.get(i).setTicketsAvailable(ticketsAvailable);
-                        System.out.println("Remaining tickets available for " + ticketActivityName + ": " + ticketsAvailable);
-                        updateComplete = true;
-                        //return updateComplete;
-                    }
-                }
-            } else if (!previouslyPurchased) { //if this is a new activity for the customer
-                for (int i = 0; i < activities.size(); i++) {
-                    if (ticketActivityName.compareTo(activities.get(i).getActivityName()) == 0) {
-                        System.out.println("1: " + ticketActivityName);
-                        int ticketsAvailable = activities.get(i).getTicketsAvailable();
-                        ticketsAvailable -= ticketsBought;
-                        System.out.println("2: " + ticketsAvailable);
-                        activities.get(i).setTicketsAvailable(ticketsAvailable);
-                        System.out.println("Remaining tickets available for " + ticketActivityName + ": " + ticketsAvailable);
-                        //tickets.add(t); now added in main
-                    }
-                }
-                //update number of activities for which customer has registered
-                if (ticketsBought > 0) {
-                    int numberRegisteredActivities = customerList.get(custIndex).getRegisteredOrders();
-                    numberRegisteredActivities++;
-                    customerList.get(custIndex).setRegisteredOrders(numberRegisteredActivities);
-                    System.out.println("updating mcupdate");
-                    updateComplete = true;
-                    //return updateComplete;
-                }
-            }
-        }
-        t.setTicketCustomer(customerList.get(custIndex));
         return updateComplete;
     }
+
+    private static int getCustIndex(PurchaseOrder po) {
+        int custIndex = 0;
+        for (int i = 0; i < customerList.size(); i++) {
+            if (po.getTicketCustomer().compareTo(customerList.get(i)) == 0) {
+                custIndex = i;
+            }
+        }
+        return custIndex;
     }
-//now i bought two tickets (one for 2, one for 3) and it says that there's a total of six tickets possible to return
-//TODO: FIGURE OUT why cancellations are so fucked up
-//TODO: IF customer reduces tickets to zero, remove the order using orders.remove()
-//TODO: CHANGE class Ticket to PurchasedOrders
+
+    private static int getPOIndex(PurchaseOrder po) {
+        String ticketActivityName =po.getTicketActivityName();
+        //find correct ticket in the ticket array list
+        int poIndex = 0;
+        for (int i = 0; i<orders.size(); i++) {
+            for (PurchaseOrder compareOrder : orders) {
+                if (compareOrder.compareTo(po) == 0) {
+                    poIndex = i;
+                }
+            }
+        }
+        return poIndex;
+    }
+    private static void updatePOTickets(int poIndex, int ticketsBought){
+        //update tickets on customer's purchase order to reflect more tickets bought
+        int previousTicketQuantity = orders.get(poIndex).getTicketsBought();
+        previousTicketQuantity += ticketsBought;
+        orders.get(poIndex).setTicketsBought(previousTicketQuantity);
+    }
+
+    private static void updateAvailableTickets(int poIndex, int ticketsBought){
+        String ticketActivityName = orders.get(poIndex).getTicketActivityName();
+        for (int i = 0; i < activities.size(); i++) {
+            if (ticketActivityName.compareTo(activities.get(i).getActivityName()) == 0) {
+                int ticketsAvailable = activities.get(i).getTicketsAvailable();
+                ticketsAvailable -= ticketsBought;
+                activities.get(i).setTicketsAvailable(ticketsAvailable);
+
+            }
+        }
+    }
+
+    private static void updateNumberPOs(int custIndex){
+        int numberRegisteredActivities = customerList.get(custIndex).getRegisteredOrders();
+        numberRegisteredActivities++;
+        customerList.get(custIndex).setRegisteredOrders(numberRegisteredActivities);
+    }
+}

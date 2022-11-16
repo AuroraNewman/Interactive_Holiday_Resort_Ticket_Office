@@ -1,5 +1,5 @@
 6
-a
+Sauna
 10
 Bowling
 8
@@ -11,7 +11,9 @@ Football
 22
 Table Tennis
 4
-3
-a a
-Anna Smith
-Ted Jones
+5
+Tom Holland
+Yunji Song
+Rufus Wuffles
+Alex Voo
+Alex Holland
