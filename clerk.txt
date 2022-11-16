@@ -1,0 +1,268 @@
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+5
+Please enter a valid option.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+cat
+Please enter a valid option.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+a
+8 tickets available for Bowling.
+10 tickets available for Cycling.
+22 tickets available for Football.
+3 tickets available for Sailing.
+10 tickets available for Sauna.
+4 tickets available for Table Tennis.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+c
+Alex Holland has registered for 0 activities.
+Tom Holland has registered for 0 activities.
+Yunji Song has registered for 0 activities.
+Alex Voo has registered for 0 activities.
+Rufus Wuffles has registered for 0 activities.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+Yunjee Song
+You have entered:
+First Name: Yunjee. Last Name: Song
+This name does not belong to a registered customer. Please check the name and try again.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+Yunji Song
+You have entered:
+First Name: Yunji. Last Name: Song
+Yunji Song is a valid name.
+Yunji Song has registered for 0 activities.
+Please enter the customer's chosen activity.
+Zumba
+Zumba is not a valid activity name. Please try again.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+Yunji Song
+You have entered:
+First Name: Yunji. Last Name: Song
+Yunji Song is a valid name.
+Yunji Song has registered for 0 activities.
+Please enter the customer's chosen activity.
+Cycling
+You have chosen: Cycling.
+Please enter the number of tickets to be bought.
+2
+Yunji Song has registered for 1 activities.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+Alex Holland
+You have entered:
+First Name: Alex. Last Name: Holland
+Alex Holland is a valid name.
+Alex Holland has registered for 0 activities.
+Please enter the customer's chosen activity.
+Sailing
+You have chosen: Sailing.
+Please enter the number of tickets to be bought.
+3
+Alex Holland has registered for 1 activities.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+Yunji Song
+You have entered:
+First Name: Yunji. Last Name: Song
+Yunji Song is a valid name.
+Yunji Song has registered for 1 activities.
+Please enter the customer's chosen activity.
+Football
+You have chosen: Football.
+Please enter the number of tickets to be bought.
+1
+Yunji Song has registered for 2 activities.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+Yunji Song
+You have entered:
+First Name: Yunji. Last Name: Song
+Yunji Song is a valid name.
+Yunji Song has registered for 2 activities.
+Please enter the customer's chosen activity.
+Football
+You have chosen: Football.
+Please enter the number of tickets to be bought.
+3
+Yunji Song has registered for 2 activities.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+a
+8 tickets available for Bowling.
+8 tickets available for Cycling.
+18 tickets available for Football.
+0 tickets available for Sailing.
+10 tickets available for Sauna.
+4 tickets available for Table Tennis.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+c
+Alex Holland has registered for 1 activity.
+Tom Holland has registered for 0 activities.
+Yunji Song has registered for 2 activities.
+Alex Voo has registered for 0 activities.
+Rufus Wuffles has registered for 0 activities.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+r
+Please enter the customer's full name, first and last.
+Yunji Song
+You have entered:
+First Name: Yunji. Last Name: Song
+Yunji Song is a valid name.
+Please enter the activity to be cancelled.
+Zumba
+Zumba is not a valid activity name. Please try again.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+r
+Please enter the customer's full name, first and last.
+Yunjee Song
+You have entered:
+First Name: Yunjee. Last Name: Song
+This name does not belong to a registered customer. Please check the name and try again.
+You have entered an invalid name. Please try again.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+r
+Please enter the customer's full name, first and last.
+Yunji Song
+You have entered:
+First Name: Yunji. Last Name: Song
+Yunji Song is a valid name.
+Please enter the activity to be cancelled.
+Cycling
+You have chosen: Cycling.
+You have purchased 2 tickets.
+How many tickets will you cancel?
+2
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+a
+8 tickets available for Bowling.
+8 tickets available for Cycling.
+20 tickets available for Football.
+0 tickets available for Sailing.
+10 tickets available for Sauna.
+4 tickets available for Table Tennis.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+c
+Alex Holland has registered for 1 activity.
+Tom Holland has registered for 0 activities.
+Yunji Song has registered for 2 activities.
+Alex Voo has registered for 0 activities.
+Rufus Wuffles has registered for 0 activities.
+Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+f
+
+Process finished with exit code 0

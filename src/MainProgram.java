@@ -109,7 +109,6 @@ public class MainProgram {
                                             previouslyPurchased = false;
                                         }
                                     }
-                                    //orders.add(activeOrder);
                                     if (orders.size() == 0 && !previouslyPurchased) {
                                         orders.add(activeOrder);
                                     } else if (!previouslyPurchased) {
@@ -169,25 +168,25 @@ public class MainProgram {
                                 }
                                 //find ticket using customer name and activity name
                                 //check the ticket has the same customer and activity names as input
-                                //TODO: use the gettickindex or whatever to find this
-                                int ticketIndex = 0;
+                                //TODO: use the gettickindex or whatever to find this. this is similar to the getpoindex
+                                int orderIndex = 0;
                                 for (int i = 0; i<orders.size(); i++) {
                                     int nameMatch = orders.get(i).getTicketCustomer().compareTo(customerList.get(customerIndex));
                                     if (nameMatch == 0) {
                                         int activityMatch = orders.get(i).getTicketActivityName().compareTo(ticketActivityName);
                                         if (activityMatch == 0) {
-                                            ticketIndex = i;
+                                            orderIndex = i;
                                         }
                                     }
                                 }
                                 //ask how many tickets to cancel
                                 try {
-                                    System.out.println("You have purchased " + orders.get(ticketIndex).getTicketsBought() + " tickets.");
+                                    System.out.println("You have purchased " + orders.get(orderIndex).getTicketsBought() + " tickets.");
                                     System.out.println("How many tickets will you cancel?");
                                     cancelQuantity = input.nextInt();
-                                    if (cancelQuantity <= orders.get(ticketIndex).getTicketsBought()) {
+                                    if (cancelQuantity <= orders.get(orderIndex).getTicketsBought()) {
                                         cancelQuantity = cancelQuantity * (-1);
-                                        update(orders.get(ticketIndex), cancelQuantity, true);
+                                        update(orders.get(orderIndex), cancelQuantity, true);
                                         //reduce number of registered activities
                                     } else {
                                         System.out.println("You have requested a cancellation for more tickets than are available.");
