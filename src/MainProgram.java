@@ -14,12 +14,38 @@ public class MainProgram {
     private static ArrayList<PurchaseOrder> orders;
 
     public static void main(String[] args) {
+        /*
+        SortedArrayList<Integer> sortableList = new SortedArrayList<>();
+        //Activity zumba = new Activity("Zumba", 2);
+        int zumba = 10;
+        SortedArrayList.addElement(sortableList, zumba);
+        System.out.println(sortableList);
+        int cycling = 257;
+        SortedArrayList.addElement(sortableList, cycling);
+        System.out.println(cycling);
+        System.out.println(sortableList);
+        int y = 25;
+        SortedArrayList.addElement(sortableList, y);
+        System.out.println(y);
+        System.out.println(sortableList);
+        //4
+        y = 57;
+        SortedArrayList.addElement(sortableList, y);
+        System.out.println(y);
+        System.out.println(sortableList);
+        //5
+        y = 1;
+        SortedArrayList.addElement(sortableList, y);
+        System.out.println(y);
+        System.out.println(sortableList);
+
+         */
         activities = new SortedArrayList<Activity>();
         readActivitiesFile();
-        SortedArrayList.sortArrayList(activities);
+        //SortedArrayList.sortArrayList(activities);
         customerList = new SortedArrayList<Customer>();
         readCustomersFile();
-        SortedArrayList.sortArrayList(customerList);
+        //SortedArrayList.sortArrayList(customerList);
         orders = new ArrayList<PurchaseOrder>();
         boolean done = false;
         while (!done) {
@@ -210,6 +236,8 @@ public class MainProgram {
                 System.out.println("Please enter a valid option.");
             }
         }
+
+
     }
 
     /**
@@ -229,7 +257,8 @@ public class MainProgram {
                     String activityName = inFile.nextLine();
                     int ticketsAvailable = parseInt(inFile.nextLine());
                     Activity activity1 = new Activity(activityName, ticketsAvailable);
-                    activities.add(activity1);
+                    SortedArrayList.addElement(activities, activity1);
+                    //activities.add(activity1);
                 }
                 numberCustomers = parseInt(inFile.nextLine());
                 for (int j = 0; j < numberCustomers; j++) {
@@ -269,7 +298,8 @@ public class MainProgram {
                     String lastName = separated[1];
                     int registeredActivities=0;
                     Customer c = new Customer(firstName, lastName, registeredActivities);
-                    customerList.add(c);
+                    SortedArrayList.addElement(customerList, c);
+                    //customerList.add(c);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -533,3 +563,6 @@ public class MainProgram {
         customerList.get(custIndex).setRegisteredOrders(numberRegisteredActivities);
     }
 }
+
+//TODO: separate out the update into incrementing and decrementing. It's confusing how it says choose how many tickets to be bought instead of returned, and when they try to return too many it says not enough tickets available.
+//TODO: if customer purchases tickets for activity a but selects b when canceling, program doesn't know it's wrong.

@@ -14,27 +14,50 @@ You should be able to find some clues to help you answer this question by lookin
 
 import java.util.ArrayList;
 
-public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList<E>{
-       public static <E extends Comparable<? super E>> void sortArrayList(ArrayList<E> sortableList) {
+public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList<E> {
+    public static <E extends Comparable<? super E>> void sortArrayList(ArrayList<E> sortableList) {
+        //Integer[] a = {5, 10, 7, 2, 3,};
+
         for (int i = 1; i < sortableList.size(); i++) {
             E value = sortableList.get(i);
             int j;
             for (j = i; j > 0; j--) {
                 if (sortableList.get(j - 1).compareTo(value) < 0) {
                     break;
-                }
-                else {
+                } else {
                     sortableList.set(j, sortableList.get(j - 1));
                 }
             }
             sortableList.set(j, value);
+        }
+    }
+
+    public static <E extends Comparable<? super E>> void addElement(ArrayList<E> sortableList, E element) {
+            if (sortableList.size() == 0) {
+                sortableList.add(element);
+            } else {
+                for (int i = 0; i < sortableList.size(); i++) {
+                    if (sortableList.get(i).compareTo(element) > 0) {
+                        sortableList.add(i, element);
+                        break;
+                    } else if (i == (sortableList.size() - 1)) {
+                        sortableList.add(element);
+                        break;
+                    } else {
+                        //System.out.println("failure");
+                        //break;
+                    }
+                }
             }
         }
-}
+    }
+
 /*
-@Override
+    @Override
     public boolean add(E e) {
         return super.add(e);
     }
 //TODO: make an implementation of sorted array list that takes in an add and puts it in the correct order instead of taking a list and sorting it.
+}
+
  */
