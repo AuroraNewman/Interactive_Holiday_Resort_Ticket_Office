@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="fixed the registered order quantity issue.&#10;split the update method into several submethods&#10;added method to remove a purchase order once a customer has returned all the tickets for that activity">
-      <change beforePath="$PROJECT_DIR$/clerk.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clerk.txt" afterDir="false" />
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="made the clerk output.&#10;still need to do some todos&#10;still need to fix the arraylist">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/letters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/letters.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +78,8 @@
       <workItem from="1668446524132" duration="1935000" />
       <workItem from="1668517005642" duration="5762000" />
       <workItem from="1668603380934" duration="2064000" />
-      <workItem from="1668606116844" duration="760000" />
+      <workItem from="1668606116844" duration="818000" />
+      <workItem from="1668764765345" duration="6224000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -121,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668522402109</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="made the clerk output.&#10;still need to do some todos&#10;still need to fix the arraylist">
+      <created>1668606931458</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668606931458</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +153,7 @@
     <MESSAGE value="this is a fucking mess. i moved the inputfile to a new method below the main, but i have a few comments with direction of how to set various vars" />
     <MESSAGE value="up on the 4th floor. fixed the non-adding registered activities to customer file" />
     <MESSAGE value="fixed the registered order quantity issue.&#10;split the update method into several submethods&#10;added method to remove a purchase order once a customer has returned all the tickets for that activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the registered order quantity issue.&#10;split the update method into several submethods&#10;added method to remove a purchase order once a customer has returned all the tickets for that activity" />
+    <MESSAGE value="made the clerk output.&#10;still need to do some todos&#10;still need to fix the arraylist" />
+    <option name="LAST_COMMIT_MESSAGE" value="made the clerk output.&#10;still need to do some todos&#10;still need to fix the arraylist" />
   </component>
 </project>
