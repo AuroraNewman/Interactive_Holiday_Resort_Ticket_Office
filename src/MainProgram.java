@@ -16,10 +16,8 @@ public class MainProgram {
     public static void main(String[] args) {
         activities = new SortedArrayList<Activity>();
         readActivitiesFile();
-        //SortedArrayList.sortArrayList(activities);
         customerList = new SortedArrayList<Customer>();
         readCustomersFile();
-        //SortedArrayList.sortArrayList(customerList);
         orders = new ArrayList<PurchaseOrder>();
         boolean done = false;
         while (!done) {
@@ -32,7 +30,6 @@ public class MainProgram {
                         entry.equals("F") || entry.equals("A") || entry.equals("C") || entry.equals("T") || entry.equals("R") ) {
                     option = entry.charAt(0);
                 }
-
                 switch (option) {
                     case 'f': //User exits the program.
                     case 'F':
@@ -50,88 +47,76 @@ public class MainProgram {
                         break;
                     case 't': //Update info after clerk sells ticket.
                     case 'T':
-                        Scanner input = new Scanner(System.in);
-                        boolean tComplete = false;
-                        while (!tComplete) {
-                            //TODO: try eliminating tcomplete
-                            try {
-                                //the following method takes in clerk input and uses it to find the customer in the list. If the customer can't be found, exit the loop.
-                                int customerIndex = findCustomer();
-                                if (customerIndex < 0) {
-                                    System.out.println("Please check the customer's name and try again.");
-                                    break;
-                                }
-                                if (!checkNumberActivities(customerList.get(customerIndex))) {
-                                    System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for too many activities.");
-                                    System.out.println("Please cancel an activity before adding a new one.");
-                                    break;
-                                }
-                                String ticketActivityName = findActivityName();
-                                if (ticketActivityName == null) {
-                                    break;
-                                }
-                                System.out.println("Please enter the number of tickets to be bought.");
-                                int ticketsBought = input.nextInt();
-                                if (ticketsBought<=0) {
-                                    break;
-                                }
-                                if (!checkSufficientTickets(ticketActivityName, ticketsBought, customerList.get(customerIndex).getFirstName(), customerList.get(customerIndex).getLastName())) {
-                                    System.out.println("There are not enough tickets available. Please choose a different activity or quantity.");
-                                    break;
-                                }
-                                boolean previouslyPurchased = checkIfPreviouslyPurchased(customerIndex, ticketActivityName, ticketsBought);
-                                PurchaseOrder activeOrder = new PurchaseOrder(customerList.get(customerIndex), ticketActivityName, ticketsBought);
-                                if (orders.size() == 0 && !previouslyPurchased) {
-                                    orders.add(activeOrder);
-                                } else if (!previouslyPurchased) {
-                                    orders.add(activeOrder);
-                                }
-                                update(activeOrder, ticketsBought, previouslyPurchased); //TODO: update is too busy. break up into placeorder and cancelorder methods
-                                System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activities.");
-                                tComplete = true;
-                            } catch (InputMismatchException e) {
-                                System.out.println("Please enter a valid option.");
-                            } //TODO: is index out of bounds necessary now that the name input is in a different method?
-                            catch (IndexOutOfBoundsException f) {
-                                System.out.println("Please check your input and try again. Thank you.");
-                            }
+                        //the following method takes in clerk input and uses it to find the customer in the list. If the customer can't be found, exit the loop.
+                        int customerIndex = findCustomer();
+                        if (customerIndex < 0) {
+                            System.out.println("Please check the customer's name and try again.");
                             break;
                         }
+                        if (!checkNumberActivities(customerList.get(customerIndex))) {
+                            System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for too many activities.");
+                            System.out.println("Please cancel an activity before adding a new one.");
+                            break;
+                        }
+                        String ticketActivityName = findActivityName();
+                        if (ticketActivityName == null) {
+                            break;
+                        }
+                        int ticketQuantity = enterTicketQuantity(ticketActivityName);
+                        if (ticketQuantity<=0) {
+                            System.out.println("Please enter a positive integer.");
+                            break;
+                        }
+                        if (!checkSufficientTickets(ticketActivityName, ticketQuantity, customerList.get(customerIndex).getFirstName(), customerList.get(customerIndex).getLastName())) {
+                            //System.out.println("There are not enough tickets available. Please choose a different activity or quantity.");
+                            break;
+                        }
+                        boolean previouslyPurchased = checkIfPreviouslyPurchased(customerIndex, ticketActivityName, ticketQuantity);
+                        PurchaseOrder activeOrder = new PurchaseOrder(customerList.get(customerIndex), ticketActivityName, ticketQuantity);
+                        if (orders.size() == 0 && !previouslyPurchased) {
+                            orders.add(activeOrder);
+                        } else if (!previouslyPurchased) {
+                            orders.add(activeOrder);
+                        }
+                        updateAdd(activeOrder, ticketQuantity, previouslyPurchased);
+                        System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activities.");
                         break;
                     case 'r': //Update info after ticket canceled.
                     case 'R':
-                        boolean rComplete = false;
-                        while (!rComplete) {
-                                //the following method takes in clerk input and uses it to find the customer in the list. If the customer can't be found, exit the loop.
-                                int customerIndex = findCustomer();
-                                if (customerIndex == -1) {
-                                    System.out.println("Please check the customer's name and try again.");
-                                    break;
-                                }
-                                //check activity name is valid.
-                                String ticketActivityName = findActivityName();
-                                if (ticketActivityName == null) {
-                                    break;
-                                }
-                                //find ticket using customer name and activity name
-                                //check the ticket has the same customer and activity names as input
-                                //TODO: CONSIDER if a customer requests a return when there are no orders placed yet.
-                                int poIndex = getPOIndex(customerList.get(customerIndex), ticketActivityName, 0);
-                                //ask how many tickets to cancel
-                                int cancelQuantity = getCancelQuantity(poIndex);
-                                if (cancelQuantity <=0) {
-                                    break;
-                                }
-                                if (cancelQuantity <= orders.get(poIndex).getTicketsBought()) {
-                                    cancelQuantity = cancelQuantity * (-1);
-                                    update(orders.get(poIndex), cancelQuantity, true);
-                                    //TODO: is this a TODO? it wasn't marked that way so check on this: reduce number of registered activities
-                                } else {
-                                    System.out.println("You have requested a cancellation for more tickets than are available.");
-                                    System.out.println("Please affirm the quantity and try again.");
-                                    break;
-                                }
-                            rComplete = true;
+                        //the following method takes in clerk input and uses it to find the customer in the list. If the customer can't be found, exit the loop.
+                        customerIndex = findCustomer();
+                        if (customerIndex == -1) {
+                            System.out.println("Please check the customer's name and try again.");
+                            break;
+                        }
+                        //check activity name is valid.
+                        ticketActivityName = findActivityName();
+                        if (ticketActivityName == null) {
+                            break;
+                        }
+                        //find purchase order using customer name and activity name
+                        //check the purchase order has the same customer and activity names as input
+                        int poIndex = getPOIndex(customerList.get(customerIndex), ticketActivityName, 0);
+                        //check if this is previously purchased
+                        //ask how many tickets to cancel
+                        int cancelQuantity = getCancelQuantity(poIndex);
+                        if (cancelQuantity <=0) {
+                            break;
+                        }
+                        previouslyPurchased = checkIfPreviouslyPurchased(customerIndex, ticketActivityName, cancelQuantity);
+                        if (!previouslyPurchased) {
+                            System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has not previously bought tickets for " + ticketActivityName + ".");
+                            System.out.println("Please check your input and try again.");
+                            break;
+                        }
+                        if (cancelQuantity <= orders.get(poIndex).getTicketsBought()) {
+                            cancelQuantity = cancelQuantity * (-1);
+                            updateCancel(customerIndex, poIndex, cancelQuantity);
+                            //updateCancel(orders.get(poIndex), cancelQuantity, true);
+                        } else {
+                            System.out.println("You have requested a cancellation for more tickets than are available.");
+                            System.out.println("Please affirm the quantity and try again.");
+                            break;
                         }
                         break;
                     default:
@@ -166,7 +151,6 @@ public class MainProgram {
                     int ticketsAvailable = parseInt(inFile.nextLine());
                     Activity activity1 = new Activity(activityName, ticketsAvailable);
                     SortedArrayList.addElement(activities, activity1);
-                    //activities.add(activity1);
                 }
                 numberCustomers = parseInt(inFile.nextLine());
                 for (int j = 0; j < numberCustomers; j++) {
@@ -207,7 +191,6 @@ public class MainProgram {
                     int registeredActivities=0;
                     Customer c = new Customer(firstName, lastName, registeredActivities);
                     SortedArrayList.addElement(customerList, c);
-                    //customerList.add(c);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -348,14 +331,26 @@ public class MainProgram {
         return matchActivity;
     }
 
-    /**
-     * This method checks if the number of tickets the customer requests are available.
-     * @param ticketActivityName: this parameter is used to find the activity object in the activity arraylist; it is used to find the number of available tickets from that Activity object.
-     * @param ticketsBought
-     * @param firstName
-     * @param lastName
-     * @return
-     */
+    private static int enterTicketQuantity(String ticketActivityName) {
+        int availableTickets = 0;
+        int ticketQuantity = -1;
+        for (int i = 0; i < activities.size(); i++) {
+            if (ticketActivityName.compareTo(activities.get(i).getActivityName()) == 0) {
+                availableTickets = activities.get(i).getTicketsAvailable();
+            }
+        }
+        System.out.println("There are " + availableTickets + " tickets available for " + ticketActivityName + ".");
+        System.out.println("How many tickets would you like to purchase?");
+        try {
+            Scanner input = new Scanner(System.in);
+            ticketQuantity = input.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Please enter a positive integer using digits instead of letters (e.g., 1 and not one.)");
+        }
+        return ticketQuantity;
+    }
+
+
     private static boolean checkSufficientTickets(String ticketActivityName, int ticketsBought, String firstName, String lastName) {
         int availableTickets = 0;
         boolean ticketsAvailable = false;
@@ -364,22 +359,15 @@ public class MainProgram {
                 availableTickets = activities.get(i).getTicketsAvailable();
             }
         }
-        boolean checkComplete = false;
-        while (!checkComplete) {
             if (ticketsBought > availableTickets) {
+                System.out.println("You requested + " + ticketsBought + " for " + ticketActivityName + ", but only " + availableTickets + " tickets are available.");
                 print(ticketActivityName, ticketsBought, availableTickets, firstName, lastName);
-                checkComplete = true;
-                return ticketsAvailable;
             } else if (ticketsBought <=availableTickets) {
                 ticketsAvailable = true;
-                checkComplete = true;
-                return ticketsAvailable;
             } else {
                 System.out.println("Please enter a valid number of tickets. Thank you.");
-                checkComplete = true;
-                return ticketsAvailable;
             }
-        }
+        //}
         return ticketsAvailable;
     }
 
@@ -431,23 +419,13 @@ public class MainProgram {
         outFile.close();
     }
 
-    /**
-     * the update method uses submethods to update the number of available tickets for the activity in question and, if necessary, the number of registered activities for a customer
-     * @param po the purchase order is used to find the customer index and the poIndex.
-     * @param ticketsBought number of tickets customer is buying or returning. if the number is positive, customer is buying. if negative, customer is returning.
-     * @param previouslyPurchased if customer has previously purchased tickets for this activity, the existing purchase order is updated.
-     */
-    private static void update(PurchaseOrder po, int ticketsBought, boolean previouslyPurchased){
+    private static void updateAdd(PurchaseOrder po, int ticketsBought, boolean previouslyPurchased){
         //find correct customer in the customer array list
         int custIndex = findCustomerIndex(po.getTicketCustomer().getFirstName(), po.getTicketCustomer().getLastName());
         //find correct purchase order in the purchase order array list
         int poIndex = getPOIndex(po.getTicketCustomer(), po.getTicketActivityName(), po.getTicketsBought());
-        //if customer is returning all the tickets purchased for an activity
-        if (previouslyPurchased && (-1 * ticketsBought) == po.getTicketsBought()) {
-            updateAvailableTickets(poIndex, ticketsBought);
-            decrementNumberPOs(custIndex);
-            orders.remove(poIndex);
-        } else if(previouslyPurchased) {
+        if(previouslyPurchased) {
+            //update ticket quantity on the purchase order
             updatePOTickets(poIndex, ticketsBought);
             //update available tickets in activity list
             updateAvailableTickets(poIndex, ticketsBought);
@@ -459,14 +437,19 @@ public class MainProgram {
             }
         }
     }
-
-    /**
-     * find the purchase order in the purchase order array list.
-     * @param c
-     * @param ticketActivityName
-     * @param ticketsBought
-     * @return
-     */
+    private static void updateCancel(int customerIndex, int poIndex, int ticketsBought){
+        //if customer is returning all of the tickets for the activity
+        if ((-1 * ticketsBought) == orders.get(poIndex).getTicketsBought()) {
+            updateAvailableTickets(poIndex, ticketsBought);
+            decrementNumberPOs(customerIndex);
+            orders.remove(poIndex);
+        } else { //if customer is making partial return
+            //update ticket quantity on the purchase order
+            updatePOTickets(poIndex, ticketsBought);
+            //update available tickets in activity list
+            updateAvailableTickets(poIndex, ticketsBought);
+        }
+    }
     private static int getPOIndex(Customer c, String ticketActivityName, int ticketsBought) {
         PurchaseOrder po = new PurchaseOrder(c, ticketActivityName, ticketsBought);
         int poIndex = 0;
