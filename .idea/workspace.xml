@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="made the clerk output.&#10;still need to do some todos&#10;still need to fix the arraylist">
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="streamlining the main method. i will try getting rid of the booleans and trusting the breaks to take us out of the cycle if the input is bad">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortedArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortedArrayList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
       <workItem from="1667931871858" duration="2630000" />
       <workItem from="1667975083222" duration="7396000" />
       <workItem from="1668869360884" duration="46000" />
-      <workItem from="1668869408907" duration="3428000" />
+      <workItem from="1668869408907" duration="6105000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -152,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667925986129</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="streamlining the main method. i will try getting rid of the booleans and trusting the breaks to take us out of the cycle if the input is bad">
+      <created>1668872909456</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668872909457</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +185,7 @@
     <MESSAGE value="finished menu parts f, a, c, and the check parts of t. must use this to modify the number of tickets available for t. must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="finished menu parts f, a, c, and the check parts of t. set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
+    <MESSAGE value="streamlining the main method. i will try getting rid of the booleans and trusting the breaks to take us out of the cycle if the input is bad" />
+    <option name="LAST_COMMIT_MESSAGE" value="streamlining the main method. i will try getting rid of the booleans and trusting the breaks to take us out of the cycle if the input is bad" />
   </component>
 </project>
