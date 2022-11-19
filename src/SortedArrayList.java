@@ -15,7 +15,6 @@ You should be able to find some clues to help you answer this question by lookin
 import java.util.ArrayList;
 
 public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList<E> {
-
     public static <E extends Comparable<? super E>> void addElement(ArrayList<E> sortableList, E element) {
             if (sortableList.size() == 0) {
                 sortableList.add(element);
@@ -28,8 +27,6 @@ public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList
                         sortableList.add(element);
                         break;
                     } else {
-                        //System.out.println("failure");
-                        //break;
                     }
                 }
             }

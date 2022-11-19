@@ -27,6 +27,9 @@ public class Activity implements Comparable<Activity> {
     }
     @Override
     public String toString() {
+        if (ticketsAvailable == 1) {
+            return ticketsAvailable + " ticket available for " + activityName + ".";
+        } else
         return ticketsAvailable + " tickets available for " + activityName + ".";
     }
     @Override

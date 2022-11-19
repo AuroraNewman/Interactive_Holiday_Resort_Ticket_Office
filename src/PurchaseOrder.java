@@ -2,14 +2,6 @@ public class PurchaseOrder {
     private Customer ticketCustomer;
     private String ticketActivityName;
     private int ticketsBought;
-    /*
-    public Ticket() {
-        ticketCustomer = Customer("","",ticketsBought);
-        ticketActivityName="";
-        ticketsBought=0;
-    }
-
-     */
     public PurchaseOrder(Customer ticketCustomer, String ticketActivityName, int ticketsBought) {
         this.ticketCustomer=ticketCustomer;
         this.ticketActivityName=ticketActivityName;
@@ -53,6 +45,5 @@ public class PurchaseOrder {
             activityCompare=-1;
             return activityCompare;
         }
-        //return activityCompare;
     }
 }

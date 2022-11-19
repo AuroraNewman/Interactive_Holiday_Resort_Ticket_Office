@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="removed the booleans. am now working on subdividing the update method into place new order and cancel previous order">
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="subdivided the update method.&#10;&#10;TODO&#10;1. todo list&#10;2. javadoc&#10;3. remove superfluous commented out code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clerk.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clerk.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/letters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/letters.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PurchaseOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortedArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortedArrayList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +86,7 @@
       <workItem from="1667931871858" duration="2630000" />
       <workItem from="1667975083222" duration="7396000" />
       <workItem from="1668869360884" duration="46000" />
-      <workItem from="1668869408907" duration="9693000" />
+      <workItem from="1668869408907" duration="15633000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -166,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668875593270</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="subdivided the update method.&#10;&#10;TODO&#10;1. todo list&#10;2. javadoc&#10;3. remove superfluous commented out code">
+      <created>1668879268155</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668879268155</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +208,7 @@
     <MESSAGE value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
     <MESSAGE value="streamlining the main method. i will try getting rid of the booleans and trusting the breaks to take us out of the cycle if the input is bad" />
     <MESSAGE value="removed the booleans. am now working on subdividing the update method into place new order and cancel previous order" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed the booleans. am now working on subdividing the update method into place new order and cancel previous order" />
+    <MESSAGE value="subdivided the update method.&#10;&#10;TODO&#10;1. todo list&#10;2. javadoc&#10;3. remove superfluous commented out code" />
+    <option name="LAST_COMMIT_MESSAGE" value="subdivided the update method.&#10;&#10;TODO&#10;1. todo list&#10;2. javadoc&#10;3. remove superfluous commented out code" />
   </component>
 </project>
