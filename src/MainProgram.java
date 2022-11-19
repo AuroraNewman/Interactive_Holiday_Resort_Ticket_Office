@@ -14,32 +14,6 @@ public class MainProgram {
     private static ArrayList<PurchaseOrder> orders;
 
     public static void main(String[] args) {
-        /*
-        SortedArrayList<Integer> sortableList = new SortedArrayList<>();
-        //Activity zumba = new Activity("Zumba", 2);
-        int zumba = 10;
-        SortedArrayList.addElement(sortableList, zumba);
-        System.out.println(sortableList);
-        int cycling = 257;
-        SortedArrayList.addElement(sortableList, cycling);
-        System.out.println(cycling);
-        System.out.println(sortableList);
-        int y = 25;
-        SortedArrayList.addElement(sortableList, y);
-        System.out.println(y);
-        System.out.println(sortableList);
-        //4
-        y = 57;
-        SortedArrayList.addElement(sortableList, y);
-        System.out.println(y);
-        System.out.println(sortableList);
-        //5
-        y = 1;
-        SortedArrayList.addElement(sortableList, y);
-        System.out.println(y);
-        System.out.println(sortableList);
-
-         */
         activities = new SortedArrayList<Activity>();
         readActivitiesFile();
         //SortedArrayList.sortArrayList(activities);
@@ -53,12 +27,12 @@ public class MainProgram {
             try {
                 char option = 0;
                 Scanner userInput = new Scanner(System.in);
-                String entry = userInput.next();                
+                String entry = userInput.next();
                 if (entry.equals("f") || entry.equals("a") || entry.equals("c") || entry.equals("t") || entry.equals("r") ||
                         entry.equals("F") || entry.equals("A") || entry.equals("C") || entry.equals("T") || entry.equals("R") ) {
                     option = entry.charAt(0);
                 }
-                //TODO: to make it only accept correct answer, make it .equals to the various options or else goodbye
+
                 switch (option) {
                     case 'f': //User exits the program.
                     case 'F':
@@ -76,6 +50,7 @@ public class MainProgram {
                         break;
                     case 't': //Update info after clerk sells ticket.
                     case 'T':
+                        Scanner input = new Scanner(System.in);
                         boolean tComplete = false;
                         while (!tComplete) {
                             boolean nameCheck = false;
@@ -85,20 +60,15 @@ public class MainProgram {
                             //boolean checkSuccessful = false;
                             try {
                                 //TODO: make these inputs submethods. all the checks submethods answer to one overallcheck method.
-                                System.out.println("Please enter the customer's full name, first and last.");
-                                Scanner input = new Scanner(System.in);
-                                String name = input.nextLine();
-                                String separated[] = name.split(" ");
-                                String firstName = separated[0];
-                                String lastName = separated[1];
-                                System.out.println("You have entered:");
-                                System.out.println("First Name: " + firstName + ". Last Name: " + lastName);
-                                if (checkName(firstName, lastName)) {
+                                //TODO: DO i need all these booleans considering that the system now breaks if it doesn't work?
+                                //the following method takes in clerk input and uses it to find the customer in the list. If the customer can't be found, exit the loop.
+                                int customerIndex = findCustomer();
+                                if (customerIndex >=0) {
                                     nameCheck = true;
                                 } else {
+                                    System.out.println("Please check the customer's name and try again.");
                                     break;
                                 }
-                                int customerIndex = findCustomerIndex(firstName, lastName);
                                 if (checkNumberActivities(customerList.get(customerIndex))) {
                                     numberActivitiesCheck = true;
                                 } else if (!checkNumberActivities(customerList.get(customerIndex))) {
@@ -106,11 +76,10 @@ public class MainProgram {
                                     System.out.println("Please cancel an activity before adding a new one.");
                                     break;
                                 }
-                                System.out.println("Please enter the customer's chosen activity.");
-                                String ticketActivityName = input.nextLine();
-                                if (checkActivities(ticketActivityName)) {
+                                String ticketActivityName = findActivityName();
+                                if (ticketActivityName != null) {
                                     activityCheck = true;
-                                } else if (!checkActivities(ticketActivityName)) {
+                                } else {
                                     System.out.println(ticketActivityName + " is not a valid activity name. Please try again.");
                                     break;
                                 }
@@ -119,9 +88,9 @@ public class MainProgram {
                                 if (ticketsBought<=0) {
                                     break;
                                 }
-                                if (checkSufficientTickets(ticketActivityName, ticketsBought, firstName, lastName)) {
+                                if (checkSufficientTickets(ticketActivityName, ticketsBought, customerList.get(customerIndex).getFirstName(), customerList.get(customerIndex).getLastName())) {
                                     ticketNumberCheck = true;
-                                } else if (!checkSufficientTickets(ticketActivityName, ticketsBought, firstName, lastName)) {
+                                } else if (!checkSufficientTickets(ticketActivityName, ticketsBought, customerList.get(customerIndex).getFirstName(), customerList.get(customerIndex).getLastName())) {
                                     System.out.println("There are not enough tickets available. Please choose a different activity or quantity.");
                                     break;
                                 }
@@ -146,8 +115,8 @@ public class MainProgram {
                             catch (IndexOutOfBoundsException f) {
                                 System.out.println("Please check your input and try again. Thank you.");
                             }
-                                break;
-                            }
+                            break;
+                        }
                         break;
                     case 'r': //Update info after ticket canceled.
                     case 'R':
@@ -159,30 +128,20 @@ public class MainProgram {
                             int cancelQuantity;
                             try {
                                 System.out.println("Please enter the customer's full name, first and last.");
-                                Scanner input = new Scanner(System.in);
-                                String name = input.nextLine();
-                                String separated[] = name.split(" ");
-                                String firstName = separated[0];
-                                String lastName = separated[1];
-                                System.out.println("You have entered:");
-                                System.out.println("First Name: " + firstName + ". Last Name: " + lastName);
-                                //check customer's name is valid
-                                if (checkName(firstName, lastName)) {
-                                    nameCheck = true;
-                                } else {
-                                    System.out.println("You have entered an invalid name. Please try again.");
+                                //the following method takes in clerk input and uses it to find the customer in the list. If the customer can't be found, exit the loop.
+                                int customerIndex = findCustomer();
+                                if (customerIndex == -1) {
+                                    System.out.println("Please check the customer's name and try again.");
                                     break;
                                 }
-                                int customerIndex = findCustomerIndex(firstName, lastName);
                                 //check activity name is valid.
-                                System.out.println("Please enter the activity to be cancelled.");
-                                String ticketActivityName = input.nextLine();
-                                if (checkActivities(ticketActivityName)) {
-                                    activityCheck = true;
-                                } else if (!checkActivities(ticketActivityName)) {
-                                    System.out.println(ticketActivityName + " is not a valid activity name. Please try again.");
-                                    break;
-                                }
+                                String ticketActivityName = findActivityName();
+                                    if (ticketActivityName != null) {
+                                        activityCheck = true;
+                                    } else {
+                                        System.out.println(ticketActivityName + " is not a valid activity name. Please try again.");
+                                        break;
+                                    }
                                 //find ticket using customer name and activity name
                                 //check the ticket has the same customer and activity names as input
                                 //TODO: use the gettickindex or whatever to find this. this is similar to the getpoindex
@@ -200,7 +159,8 @@ public class MainProgram {
                                 try {
                                     System.out.println("You have purchased " + orders.get(orderIndex).getTicketsBought() + " tickets.");
                                     System.out.println("How many tickets will you cancel?");
-                                    cancelQuantity = input.nextInt();
+                                    Scanner in = new Scanner(System.in);
+                                    cancelQuantity = in.nextInt();
                                     if (cancelQuantity<=0) {
                                         break;
                                     }
@@ -218,12 +178,12 @@ public class MainProgram {
                                     System.out.println("Please check your input and try again.");
                                 }
                             } catch  (InputMismatchException e) {
-                                    System.out.println("Please enter a valid option.");
-                                }
+                                System.out.println("Please enter a valid option.");
+                            }
                             catch (IndexOutOfBoundsException f) {
                                 System.out.println("Please check your input and try again. Thank you.");
                             }
-                        rComplete = true;
+                            rComplete = true;
                         }
                         break;
                     default:
@@ -319,6 +279,48 @@ public class MainProgram {
         System.out.println("c: Display information about all registered customers.");
         System.out.println("t: Update stored data after customer buys a ticket.");
         System.out.println("r: Update stored data after customer cancels a ticket.");
+    }
+
+    private static int findCustomer(){
+        int customerIndex = -1;
+        try {
+            System.out.println("Please enter the customer's full name, first and last.");
+            Scanner input = new Scanner(System.in);
+            String name = input.nextLine();
+            String separated[] = name.split(" ");
+            String firstName = separated[0];
+            String lastName = separated[1];
+            System.out.println("You have entered:");
+            System.out.println("First Name: " + firstName + ". Last Name: " + lastName);
+            if (checkName(firstName, lastName)) {
+                customerIndex = findCustomerIndex(firstName, lastName);
+            } else {
+                customerIndex = -1;
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Please enter a valid option.");
+        }
+        catch (IndexOutOfBoundsException f) {
+            System.out.println("Please check your input and try again. Thank you.");
+        }
+        return customerIndex;
+    }
+
+    private static String findActivityName(){
+        String ticketActivityName = null;
+        try {
+            System.out.println("Please enter the customer's chosen activity.");
+            Scanner input = new Scanner(System.in);
+            ticketActivityName = input.nextLine();
+            if (!checkActivities(ticketActivityName)) {
+                ticketActivityName = null;
+                System.out.println(ticketActivityName + " is not a valid activity name. Please try again.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Please enter a valid option.");
+        }
+        return ticketActivityName;
     }
 
     /**
@@ -467,17 +469,17 @@ public class MainProgram {
      */
     private static void print(String ticketActivityName, int ticketsBought, int availableTickets, String firstName, String lastName){
         PrintWriter outFile;
-            try {
-                outFile = new PrintWriter("letters.txt");
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            outFile = new PrintWriter("letters.txt");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         outFile.write("Dear " + firstName + " " + lastName + "," + "\n");
-            outFile.write("Thank you for your interest in " + ticketActivityName + ". Unfortunately, there are only " + availableTickets + " tickets available for " + ticketActivityName + " at present." +"\n");
-            outFile.write("We invite you to try another of our activities." +"\n");
-            outFile.write("Sincerely," +"\n");
-            outFile.write("The Samsung Hotel at Geoje.");
+        outFile.write("Thank you for your interest in " + ticketActivityName + ". Unfortunately, there are only " + availableTickets + " tickets available for " + ticketActivityName + " at present." +"\n");
+        outFile.write("We invite you to try another of our activities." +"\n");
+        outFile.write("Sincerely," +"\n");
+        outFile.write("The Samsung Hotel at Geoje.");
         outFile.close();
     }
 

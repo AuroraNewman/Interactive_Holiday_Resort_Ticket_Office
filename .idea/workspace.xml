@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="up on the 4th floor. fixed the non-adding registered activities to customer file">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="made the clerk output.&#10;still need to do some todos&#10;still need to fix the arraylist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/letters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/letters.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SortedArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortedArrayList.java" afterDir="false" />
     </list>
@@ -39,10 +37,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -74,15 +71,16 @@
       <updated>1667307759042</updated>
       <workItem from="1667307760478" duration="2837000" />
       <workItem from="1667555659985" duration="5241000" />
-      <workItem from="1667565174327" duration="2718000" />
-      <workItem from="1668440470813" duration="194000" />
-      <workItem from="1668440667914" duration="5385000" />
-      <workItem from="1668446524132" duration="1935000" />
-      <workItem from="1668461743647" duration="97000" />
-      <workItem from="1668713290526" duration="163000" />
-      <workItem from="1668774610685" duration="36000" />
-      <workItem from="1668774648043" duration="9925000" />
-      <workItem from="1668786997202" duration="1995000" />
+      <workItem from="1667565174327" duration="2597000" />
+      <workItem from="1667573100140" duration="6094000" />
+      <workItem from="1667674494710" duration="6759000" />
+      <workItem from="1667753352000" duration="11238000" />
+      <workItem from="1667830760481" duration="21858000" />
+      <workItem from="1667908014721" duration="14121000" />
+      <workItem from="1667931871858" duration="2630000" />
+      <workItem from="1667975083222" duration="7396000" />
+      <workItem from="1668869360884" duration="46000" />
+      <workItem from="1668869408907" duration="3428000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
@@ -105,21 +103,56 @@
       <option name="project" value="LOCAL" />
       <updated>1667560270042</updated>
     </task>
-    <task id="LOCAL-00004" summary="this is a fucking mess. i moved the inputfile to a new method below the main, but i have a few comments with direction of how to set various vars">
-      <created>1667568337467</created>
+    <task id="LOCAL-00004" summary="implemented comparable interfaces; wept tears of frustration; starting to maybe sorta kinda come together idk">
+      <created>1667768908293</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1667568337467</updated>
+      <updated>1667768908293</updated>
     </task>
-    <task id="LOCAL-00005" summary="up on the 4th floor. fixed the non-adding registered activities to customer file">
-      <created>1668445462098</created>
+    <task id="LOCAL-00005" summary="got the SortedArrayList working">
+      <created>1667840310450</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1668445462098</updated>
+      <updated>1667840310450</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="moved readfile methods to main">
+      <created>1667841151492</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667841151492</updated>
+    </task>
+    <task id="LOCAL-00007" summary="commented out nonessential methods on main">
+      <created>1667841766975</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667841766975</updated>
+    </task>
+    <task id="LOCAL-00008" summary="finished menu parts f, a, c, and the check parts of t. must use this to modify the number of tickets available for t. must set the insufficient tickets message to print to letters.txt. must do all of r">
+      <created>1667857035351</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667857035351</updated>
+    </task>
+    <task id="LOCAL-00009" summary="finished menu parts f, a, c, and the check parts of t. set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r">
+      <created>1667858021274</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667858021274</updated>
+    </task>
+    <task id="LOCAL-00010" summary="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r">
+      <created>1667925986129</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667925986129</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,8 +172,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="made the classes and input the file." />
     <MESSAGE value="made a reader to read in the file and made array lists for customer names, activity names, and number tickets available. I think I'll need to change it all later." />
-    <MESSAGE value="this is a fucking mess. i moved the inputfile to a new method below the main, but i have a few comments with direction of how to set various vars" />
-    <MESSAGE value="up on the 4th floor. fixed the non-adding registered activities to customer file" />
-    <option name="LAST_COMMIT_MESSAGE" value="up on the 4th floor. fixed the non-adding registered activities to customer file" />
+    <MESSAGE value="implemented comparable interfaces; wept tears of frustration; starting to maybe sorta kinda come together idk" />
+    <MESSAGE value="got the SortedArrayList working" />
+    <MESSAGE value="moved readfile methods to main" />
+    <MESSAGE value="commented out nonessential methods on main" />
+    <MESSAGE value="finished menu parts f, a, c, and the check parts of t. must use this to modify the number of tickets available for t. must set the insufficient tickets message to print to letters.txt. must do all of r" />
+    <MESSAGE value="finished menu parts f, a, c, and the check parts of t. set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
+    <MESSAGE value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished menu parts f, a, c, check parts of t. working on set these method return values to come together to make a ticket.&#10;must use this to modify the number of tickets available for t.&#10;must set the insufficient tickets message to print to letters.txt. must do all of r" />
   </component>
 </project>
