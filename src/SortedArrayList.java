@@ -1,34 +1,35 @@
-/*
-Task 1 of the specification says that you need to develop a SortedArrayList<E> class as a subclass of the
-standard library class ArrayList<E> from the java.util package.
-Observe that your SortedArrayList<E> class should be implemented as a generic class that uses a type variable E.
-This class should contain only one method for inserting a new element into a sorted array list.
-This insertion method must not use the Collections.sort() method or any other built-in Java sorting method.
-Furthermore, this method should be a non-static method and therefore work as an operation on sorted array lists.
-We know that a “future” sorted array list, on which this method will be invoked, is represented inside the method by the "this" reference variable.
-Into this sorted array list, the method should to insert a new element of type E in the right place, so the ascending order of the elements in the list is preserved.
-You need to think carefully about the heading of your SortedArrayList class. Will it work with any type substituted for E, or should its type variable be
-constrained in any way?
-You should be able to find some clues to help you answer this question by looking at slide 41 of the second set of lecture notes.
+/**
+ * this class hosts a single method used to insert an element into an arraylist at the appropriate place.
  */
 
 import java.util.ArrayList;
 
 public class SortedArrayList <E extends Comparable<? super E>> extends ArrayList<E> {
-    public static <E extends Comparable<? super E>> void addElement(ArrayList<E> sortableList, E element) {
-            if (sortableList.size() == 0) {
-                sortableList.add(element);
-            } else {
-                for (int i = 0; i < sortableList.size(); i++) {
-                    if (sortableList.get(i).compareTo(element) > 0) {
-                        sortableList.add(i, element);
-                        break;
-                    } else if (i == (sortableList.size() - 1)) {
-                        sortableList.add(element);
-                        break;
-                    } else {
-                    }
+    /**
+     * this method takes in a sortable list and an element to be added to that list.
+     * if the size is zero (i.e., this is the first item to be added), the element is added.
+     * for every other case, the element is compared to each Object in the arraylist starting at index zero.
+     * if the Object in the arraylist is greater than the element to be added, the element is added into that Object's place.
+     * if the comparing integer i reaches the end of the list, the element is added to the end of the list.
+     * @param element element whose presence in this collection is to be ensured. It is added to the arraylist in the proper place to maintain its sorted status.
+     * @return true if the element was added and false if it wasn't.
+     */
+    @Override
+    public boolean add(E element) {
+        if (this.size() == 0) {
+            super.add(element);
+            return true;
+        } else {
+            for (int i = 0; i < this.size(); i++) {
+                if (this.get(i).compareTo(element) > 0) {
+                    this.add(i, element);
+                    return true;
+                } else if (i == (this.size() - 1)) {
+                    super.add(element);
+                    return true;
                 }
             }
+        }
+        return false;
     }
 }
