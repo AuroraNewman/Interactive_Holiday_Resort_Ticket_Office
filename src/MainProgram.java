@@ -19,6 +19,7 @@ public class MainProgram {
         readCustomersFile();
         orders = new ArrayList<PurchaseOrder>();
         boolean done = false;
+        System.out.println("Welcome to the Samsung Resort on Geoje.");
         while (!done) {
             printMenu();
             try {
@@ -138,10 +139,10 @@ public class MainProgram {
     }
 
     /**
-     * This method reads the input file. The first line is the number of activities.
+     * This method reads the input file called "input.txt" located in root. The first line is the number of activities.
      * A for loop is run for as many iterations as there are activities.
      * The ticket activity name and number of tickets available are read in, used to construct an Activity object, and that Activity object is added to the arraylist.
-     * The customers portion of the input file is ignored in this method.
+     * The customers portion of the input file is read in the readCustomersFile() method.
      */
     public static void readActivitiesFile() {
         int numberCustomers;
@@ -181,6 +182,7 @@ public class MainProgram {
         try {
             Scanner inFile = new Scanner(new FileReader("input.txt"));
             while (inFile.hasNextLine()) {
+                //TODO: use the #activities as the start of the second for loop and j is less than #cust + #act
                 numberActivities = parseInt(inFile.nextLine());
                 for (int i = 0; i < numberActivities; i++) {
                     inFile.nextLine(); //to skip over activity name
@@ -203,11 +205,10 @@ public class MainProgram {
     }
 
     /**
-     * This is a menu that explains the options to the clerk.
+     * Interactive menu that explains the options to the clerk.
      */
 
     private static void printMenu() {
-        System.out.println("Welcome to the Samsung Resort on Geoje.");
         System.out.println("Please choose from one of the following options.");
         System.out.println("f: Exit the program.");
         System.out.println("a: Display information about all activities.");
@@ -218,7 +219,8 @@ public class MainProgram {
 
     /**
      * Accepts clerk input for name.
-     * Checks input against the list of customers
+     * Input is split into two fields for first and last name.
+     * In a secondary method, checks input against the list of customers.
      * @return the index at which the customer is located.
      */
     private static int inputCustomerName(){
@@ -232,12 +234,7 @@ public class MainProgram {
             String lastName = separated[1];
             //System.out.println("You have entered:");
             //System.out.println("First Name: " + firstName + ". Last Name: " + lastName);
-            if (checkName(firstName, lastName)) {
-                customerIndex = findCustomerIndex(firstName, lastName);
-            } else {
-                customerIndex = -1;
-            }
-
+            customerIndex = checkName(firstName, lastName);
         } catch (InputMismatchException e) {
             System.out.println("Please enter a valid option.");
         }
@@ -246,49 +243,27 @@ public class MainProgram {
         }
         return customerIndex;
     }
-
-    /**
-     * This method builds a temporary customer using the parameters first name and last name.
-     * It compares the temporary customer name to the list of registered customers and returns a boolean value for if a match is found.
-     * @param firstName: customer first name for comparison
-     * @param lastName: customer last name for comparison
-     * @return boolean value for finding a match for the customer.
-     */
-    private static boolean checkName(String firstName, String lastName){
-        Customer tempCustomer = new Customer(firstName, lastName, 0);
-        boolean matchCustomer = false;
-        //check customer match
-        for (Customer cust : customerList) {
-            if (cust.compareTo(tempCustomer) == 0) {
-                matchCustomer = true;
-                System.out.println(cust.getFirstName() + " " + cust.getLastName() + " is a valid name.");
-            }
-        }
-        if (!matchCustomer) {
-            System.out.println(firstName + " " + lastName + " is not a registered customer.");
-        }
-        return matchCustomer;
-    }
-
     /**
      * This method builds a temporary customer using the parameters first name and last name.
      * It compares the temporary customer name to the list of registered customers.
      * Once found, it returns the index at which the customer is located.
-     * @param first: first name as verified in method checkName()
-     * @param last: last name as verified in method checkName()
+     * @param firstName customer first name for comparison
+     * @param lastName customer last name for comparison
      * @return index of customer in arraylist customerList.
      */
-    private static int findCustomerIndex(String first, String last) {
-        Customer c = new Customer(first, last, 0);
-        int j = 0;
+    private static int checkName(String firstName, String lastName){
+        Customer tempCustomer = new Customer(firstName, lastName, 0);
+        int customerIndex = -1;
         for (int i = 0; i<customerList.size(); i++){
-            if (c.compareTo(customerList.get(i))==0){
-                j=i;
+            if (tempCustomer.compareTo(customerList.get(i))==0){
+                customerIndex=i;
             }
         }
-        return j;
+        if (customerIndex == -1) {
+            System.out.println(firstName + " " + lastName + " is not a registered customer.");
+        }
+        return customerIndex;
     }
-
     /**
      * Accepts clerk input for activity name.
      * Checks input against the list of activities using a secondary method.
@@ -487,7 +462,7 @@ public class MainProgram {
      */
     private static void updateAdd(PurchaseOrder po, int ticketsBought, boolean previouslyPurchased, int activityIndex){
         //find correct customer in the customer array list
-        int custIndex = findCustomerIndex(po.getTicketCustomer().getFirstName(), po.getTicketCustomer().getLastName());
+        int custIndex = checkName(po.getTicketCustomer().getFirstName(), po.getTicketCustomer().getLastName());
         //find correct purchase order in the purchase order array list
         int poIndex = getPOIndex(po.getTicketCustomer(), po.getTicketActivityName(), po.getTicketsBought());
         if(previouslyPurchased) {
