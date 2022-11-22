@@ -83,8 +83,12 @@ public class MainProgram {
                         } else if (!previouslyPurchased) {
                             orders.add(activeOrder);
                         }
-                        updateAdd(activeOrder, ticketQuantity, previouslyPurchased);
-                        System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activities.");
+                        updateAdd(activeOrder, ticketQuantity, previouslyPurchased, activityIndex);
+                        if (customerList.get(customerIndex).getRegisteredOrders() == 1) {
+                            System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activity.");
+                        } else {
+                            System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activities.");
+                        }
                         break;
                     case 'r': //Update info after ticket canceled.
                     case 'R':
@@ -102,7 +106,6 @@ public class MainProgram {
                         //find purchase order using customer name and activity name
                         //check the purchase order has the same customer and activity names as input
                         int poIndex = getPOIndex(customerList.get(customerIndex), activities.get(activityIndex).getActivityName(), 0);
-                        System.out.println("PO index : " + poIndex);
                         if (poIndex == -1) {
                             System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has not previously bought tickets for " + activities.get(activityIndex).getActivityName() + ".");
                             System.out.println("Please check your input and try again.");
@@ -114,9 +117,8 @@ public class MainProgram {
                         }
                         //check customer has purchased as many tickets as they are requesting to be cancelled
                         if (cancelQuantity <= orders.get(poIndex).getTicketsBought()) {
-                            System.out.println("Activity at poIndex" + poIndex + " is " + orders.get(poIndex).getTicketActivityName());
                             cancelQuantity = cancelQuantity * (-1);
-                            updateCancel(customerIndex, poIndex, cancelQuantity);
+                            updateCancel(customerIndex, poIndex, cancelQuantity, activityIndex);
                         } else {
                             System.out.println("You have requested a cancellation for more tickets than purchased.");
                             System.out.println("Please affirm the quantity and try again.");
@@ -483,7 +485,7 @@ public class MainProgram {
      * @param ticketsBought number tickets being bought
      * @param previouslyPurchased if this is a new order or adding on to a previously purchased order
      */
-    private static void updateAdd(PurchaseOrder po, int ticketsBought, boolean previouslyPurchased){
+    private static void updateAdd(PurchaseOrder po, int ticketsBought, boolean previouslyPurchased, int activityIndex){
         //find correct customer in the customer array list
         int custIndex = findCustomerIndex(po.getTicketCustomer().getFirstName(), po.getTicketCustomer().getLastName());
         //find correct purchase order in the purchase order array list
@@ -492,9 +494,9 @@ public class MainProgram {
             //update ticket quantity on the purchase order
             updatePOTickets(poIndex, ticketsBought);
             //update available tickets in activity list
-            updateAvailableTickets(poIndex, ticketsBought);
+            updateAvailableTickets(ticketsBought, activityIndex);
         } else if (!previouslyPurchased) { //if this is a new activity for the customer
-            updateAvailableTickets(poIndex, ticketsBought);
+            updateAvailableTickets(ticketsBought, activityIndex);
             //update number of activities for which customer has registered
             if (ticketsBought > 0) {
                 incrementNumberPOs(custIndex);
@@ -512,17 +514,17 @@ public class MainProgram {
      * @param poIndex is used to find the purchase order in the arraylist
      * @param ticketsBought number of tickets customer is buying
      */
-    private static void updateCancel(int customerIndex, int poIndex, int ticketsBought){
+    private static void updateCancel(int customerIndex, int poIndex, int ticketsBought, int activityIndex){
         //if customer is returning all the tickets for the activity
         if ((-1 * ticketsBought) == orders.get(poIndex).getTicketsBought()) {
-            updateAvailableTickets(poIndex, ticketsBought);
+            updateAvailableTickets(ticketsBought, activityIndex);
             decrementNumberPOs(customerIndex);
             orders.remove(poIndex);
         } else { //if customer is making partial return
             //update ticket quantity on the purchase order
             updatePOTickets(poIndex, ticketsBought);
             //update available tickets in activity list
-            updateAvailableTickets(poIndex, ticketsBought);
+            updateAvailableTickets(ticketsBought, activityIndex);
         }
     }
 
@@ -560,21 +562,14 @@ public class MainProgram {
     }
 
     /**
-     * using purchase order index, update the number of available tickets for a given activity after purchase or return
-     * @param poIndex index at which the purchase order may be found
-     * @param ticketsBought number of tickets bought
+     * using activity index, update the number of available tickets for a given activity after purchase or return
+     * @param ticketsBought number of tickets bought; used to update number of available tickets
+     * @param activityIndex used to find the activity index to get and set the available tickets
      */
-    //TODO: change this using the activity index
-    private static void updateAvailableTickets(int poIndex, int ticketsBought){
-        String ticketActivityName = orders.get(poIndex).getTicketActivityName();
-        for (int i = 0; i < activities.size(); i++) {
-            if (ticketActivityName.compareTo(activities.get(i).getActivityName()) == 0) {
-                int ticketsAvailable = activities.get(i).getTicketsAvailable();
-                ticketsAvailable -= ticketsBought;
-                activities.get(i).setTicketsAvailable(ticketsAvailable);
-
-            }
-        }
+    private static void updateAvailableTickets(int ticketsBought, int activityIndex){
+        int ticketsAvailable = activities.get(activityIndex).getTicketsAvailable();
+        ticketsAvailable -= ticketsBought;
+        activities.get(activityIndex).setTicketsAvailable(ticketsAvailable);
     }
 
     /**
@@ -618,5 +613,3 @@ public class MainProgram {
         customerList.get(custIndex).setRegisteredOrders(numberRegisteredActivities);
     }
 }
-
-//TODO: modify the ticket number so that if customer buys 1 ticket it doesn't say You have purchased 1 ticketS.

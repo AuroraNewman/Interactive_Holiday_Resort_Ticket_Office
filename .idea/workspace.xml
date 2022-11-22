@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="45ec0cbe-d99d-4a05-b811-284610f80ba5" name="Changes" comment="up on the 4th floor. fixed the non-adding registered activities to customer file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clerk.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clerk.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/letters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/letters.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PurchaseOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortedArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortedArrayList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +95,7 @@
       <workItem from="1667931871858" duration="2630000" />
       <workItem from="1667975083222" duration="7396000" />
       <workItem from="1668954324827" duration="15921000" />
+      <workItem from="1669113526012" duration="4372000" />
     </task>
     <task id="LOCAL-00001" summary="made the classes and input the file.">
       <created>1667555766424</created>
