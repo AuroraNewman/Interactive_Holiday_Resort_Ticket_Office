@@ -1,3 +1,4 @@
+C:\Users\Melissa\.jdks\openjdk-19\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2022.2.2\lib\idea_rt.jar=57929:C:\Program Files\JetBrains\IntelliJ IDEA 2022.2.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\Melissa\IdeaProjects\csc8012-summative-coursework\out\production\summative coursework 8012" MainProgram
 Welcome to the Samsung Resort on Geoje.
 Please choose from one of the following options.
 f: Exit the program.
@@ -7,16 +8,14 @@ t: Update stored data after customer buys a ticket.
 r: Update stored data after customer cancels a ticket.
 123
 Please enter a valid option.
-Welcome to the Samsung Resort on Geoje.
 Please choose from one of the following options.
 f: Exit the program.
 a: Display information about all activities.
 c: Display information about all registered customers.
 t: Update stored data after customer buys a ticket.
 r: Update stored data after customer cancels a ticket.
-/^5gf90
+/fdi
 Please enter a valid option.
-Welcome to the Samsung Resort on Geoje.
 Please choose from one of the following options.
 f: Exit the program.
 a: Display information about all activities.
@@ -25,21 +24,253 @@ t: Update stored data after customer buys a ticket.
 r: Update stored data after customer cancels a ticket.
 fatcat
 Please enter a valid option.
-Welcome to the Samsung Resort on Geoje.
 Please choose from one of the following options.
 f: Exit the program.
 a: Display information about all activities.
 c: Display information about all registered customers.
 t: Update stored data after customer buys a ticket.
 r: Update stored data after customer cancels a ticket.
-a
+A
 10 tickets available for Sauna.
 8 tickets available for Cat Cafe.
 10 tickets available for Cycling.
 3 tickets available for Sailing.
 22 tickets available for Football.
 4 tickets available for Table Tennis.
-Welcome to the Samsung Resort on Geoje.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+C
+Tom Holland has registered for 0 activities.
+Yunji Song has registered for 0 activities.
+Rufus Wuffles has registered for 0 activities.
+Alex Voo has registered for 0 activities.
+Alex Holland has registered for 0 activities.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+123
+Please enter the customer's first and last name. Thank you.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+/fjdk;
+Please enter the customer's first and last name. Thank you.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunjii song
+yunjii song is not a registered customer.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+f
+f is not a valid activity name. Please try again.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji
+Please enter the customer's first and last name. Thank you.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+Yunji Song
+Please enter the customer's chosen activity.
+213
+213 is not a valid activity name. Please try again.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+feetball
+feetball is not a valid activity name. Please try again.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+table tennis
+You have chosen: table tennis.
+There are 4 tickets available for Table Tennis.
+How many tickets would you like to purchase?
+5
+You requested 5 tickets for Table Tennis, but only 4 tickets are available.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+sauna
+You have chosen: sauna.
+There are 10 tickets available for Sauna.
+How many tickets would you like to purchase?
+5
+Yunji Song has registered for 1 activity.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+sauna
+You have chosen: sauna.
+There are 5 tickets available for Sauna.
+How many tickets would you like to purchase?
+five
+Please enter a positive integer using digits instead of letters (e.g., 1 and not one.)
+Please enter a positive integer.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+sauna
+You have chosen: sauna.
+There are 5 tickets available for Sauna.
+How many tickets would you like to purchase?
+-5
+Please enter a positive integer.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+sauna
+You have chosen: sauna.
+There are 5 tickets available for Sauna.
+How many tickets would you like to purchase?
+5
+Yunji Song has registered for 1 activity.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+rufus wuffles
+Please enter the customer's chosen activity.
+cat cafe
+You have chosen: cat cafe.
+There are 8 tickets available for Cat Cafe.
+How many tickets would you like to purchase?
+2
+Rufus Wuffles has registered for 1 activity.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+cat cafe
+You have chosen: cat cafe.
+There are 6 tickets available for Cat Cafe.
+How many tickets would you like to purchase?
+6
+Yunji Song has registered for 2 activities.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+table tennis
+You have chosen: table tennis.
+There are 4 tickets available for Table Tennis.
+How many tickets would you like to purchase?
+4
+Yunji Song has registered for 3 activities.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+sailing
+You have chosen: sailing.
+There are 3 tickets available for Sailing.
+How many tickets would you like to purchase?
+3
+Yunji Song has registered for too many activities.
+Please cancel an activity before adding a new one.
 Please choose from one of the following options.
 f: Exit the program.
 a: Display information about all activities.
@@ -48,347 +279,10 @@ t: Update stored data after customer buys a ticket.
 r: Update stored data after customer cancels a ticket.
 c
 Tom Holland has registered for 0 activities.
-Yunji Song has registered for 0 activities.
-Rufus Wuffles has registered for 0 activities.
+Yunji Song has registered for 3 activities.
+Rufus Wuffles has registered for 1 activity.
 Alex Voo has registered for 0 activities.
 Alex Holland has registered for 0 activities.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-123
-Please check your input and try again. Thank you.
-Please check the customer's name and try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-%43mkglf
-Please enter a valid option.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-Yunji
-Please enter a valid option.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-yunjee song
-yunjee song is not a registered customer.
-Please check the customer's name and try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-#4fkd;
-#4fkd; is not a valid activity name. Please try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-123
-123 is not a valid activity name. Please try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-catcafe
-catcafe is not a valid activity name. Please try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-cat cafe
-You have chosen: cat cafe.
-There are 8 tickets available for Cat Cafe.
-How many tickets would you like to purchase?
--123
-Please enter a positive integer.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-cat cafe
-You have chosen: cat cafe.
-There are 8 tickets available for Cat Cafe.
-How many tickets would you like to purchase?
-one
-Please enter a positive integer using digits instead of letters (e.g., 1 and not one.)
-Please enter a positive integer.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Cat Cafe
-You have chosen: Cat Cafe.
-There are 8 tickets available for Cat Cafe.
-How many tickets would you like to purchase?
-9
-You requested 9 tickets for Cat Cafe, but only 8 tickets are available.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Cat Cafe
-You have chosen: Cat Cafe.
-There are 8 tickets available for Cat Cafe.
-How many tickets would you like to purchase?
-8
-Yunji Song has registered for 1 activity.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Sauna
-You have chosen: Sauna.
-There are 10 tickets available for Sauna.
-How many tickets would you like to purchase?
-1
-Yunji Song has registered for 2 activities.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Table Tennis
-You have chosen: Table Tennis.
-There are 4 tickets available for Table Tennis.
-How many tickets would you like to purchase?
-1
-Yunji Song has registered for 3 activities.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Football
-You have chosen: Football.
-There are 22 tickets available for Football.
-How many tickets would you like to purchase?
-1
-Yunji Song has registered for too many activities.
-Please cancel an activity before adding a new one.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-r
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Cat Cafe
-You have chosen: Cat Cafe.
-You have purchased 8 tickets.
-How many tickets will you cancel?
-3
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Football
-You have chosen: Football.
-There are 22 tickets available for Football.
-How many tickets would you like to purchase?
-1
-Yunji Song has registered for too many activities.
-Please cancel an activity before adding a new one.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-r
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Cat Cafe
-You have chosen: Cat Cafe.
-You have purchased 5 tickets.
-How many tickets will you cancel?
-5
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-t
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Football
-You have chosen: Football.
-There are 22 tickets available for Football.
-How many tickets would you like to purchase?
-22
-Yunji Song has registered for 3 activities.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-r
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Cat Cafe
-You have chosen: Cat Cafe.
-Yunji Song has not previously bought tickets for Cat Cafe.
-Please check your input and try again.
-Please check your input and try again. Thank you.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-r
-Please enter the customer's full name, first and last.
-yoonji song
-yoonji song is not a registered customer.
-Please check the customer's name and try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-r
-Please enter the customer's full name, first and last.
-$343
-Please check your input and try again. Thank you.
-Please check the customer's name and try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-r
-Please enter the customer's full name, first and last.
-123
-Please check your input and try again. Thank you.
-Please check the customer's name and try again.
-Welcome to the Samsung Resort on Geoje.
 Please choose from one of the following options.
 f: Exit the program.
 a: Display information about all activities.
@@ -398,58 +292,29 @@ r: Update stored data after customer cancels a ticket.
 r
 Please enter the customer's full name, first and last.
 yunji song
-Yunji Song is a valid name.
 Please enter the customer's chosen activity.
-123
-123 is not a valid activity name. Please try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-r
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-#43343adf
-#43343adf is not a valid activity name. Please try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-r
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-catcafe
-catcafe is not a valid activity name. Please try again.
-Welcome to the Samsung Resort on Geoje.
-Please choose from one of the following options.
-f: Exit the program.
-a: Display information about all activities.
-c: Display information about all registered customers.
-t: Update stored data after customer buys a ticket.
-r: Update stored data after customer cancels a ticket.
-r
-Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
-Please enter the customer's chosen activity.
-Football
-You have chosen: Football.
-You have purchased 22 tickets.
+table tennis
+You have chosen: table tennis.
+You have purchased 4 tickets.
 How many tickets will you cancel?
-23
-You have requested a cancellation for more tickets than purchased.
-Please affirm the quantity and try again.
-Welcome to the Samsung Resort on Geoje.
+2
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+t
+Please enter the customer's full name, first and last.
+yunji song
+Please enter the customer's chosen activity.
+sailing
+You have chosen: sailing.
+There are 3 tickets available for Sailing.
+How many tickets would you like to purchase?
+3
+Yunji Song has registered for too many activities.
+Please cancel an activity before adding a new one.
 Please choose from one of the following options.
 f: Exit the program.
 a: Display information about all activities.
@@ -458,16 +323,13 @@ t: Update stored data after customer buys a ticket.
 r: Update stored data after customer cancels a ticket.
 r
 Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
+yunji song
 Please enter the customer's chosen activity.
-Football
-You have chosen: Football.
-You have purchased 22 tickets.
+table tennis
+You have chosen: table tennis.
+You have purchased 2 tickets.
 How many tickets will you cancel?
-twenty
-Please check your input and try again.
-Welcome to the Samsung Resort on Geoje.
+2
 Please choose from one of the following options.
 f: Exit the program.
 a: Display information about all activities.
@@ -476,16 +338,12 @@ t: Update stored data after customer buys a ticket.
 r: Update stored data after customer cancels a ticket.
 r
 Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
+yunji song
 Please enter the customer's chosen activity.
-football
-You have chosen: football.
-You have purchased 22 tickets.
-How many tickets will you cancel?
-???
-Please check your input and try again.
-Welcome to the Samsung Resort on Geoje.
+sailing
+You have chosen: sailing.
+Yunji Song has not previously bought tickets for Sailing.
+Please check your input and try again. Thank you.
 Please choose from one of the following options.
 f: Exit the program.
 a: Display information about all activities.
@@ -494,15 +352,38 @@ t: Update stored data after customer buys a ticket.
 r: Update stored data after customer cancels a ticket.
 r
 Please enter the customer's full name, first and last.
-Yunji Song
-Yunji Song is a valid name.
+yunji song
 Please enter the customer's chosen activity.
-Football
-You have chosen: Football.
-You have purchased 22 tickets.
+sauna
+You have chosen: sauna.
+You have purchased 10 tickets.
 How many tickets will you cancel?
-1
-Welcome to the Samsung Resort on Geoje.
+10
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+c
+Tom Holland has registered for 0 activities.
+Yunji Song has registered for 1 activity.
+Rufus Wuffles has registered for 1 activity.
+Alex Voo has registered for 0 activities.
+Alex Holland has registered for 0 activities.
+Please choose from one of the following options.
+f: Exit the program.
+a: Display information about all activities.
+c: Display information about all registered customers.
+t: Update stored data after customer buys a ticket.
+r: Update stored data after customer cancels a ticket.
+a
+10 tickets available for Sauna.
+0 tickets available for Cat Cafe.
+10 tickets available for Cycling.
+3 tickets available for Sailing.
+22 tickets available for Football.
+4 tickets available for Table Tennis.
 Please choose from one of the following options.
 f: Exit the program.
 a: Display information about all activities.

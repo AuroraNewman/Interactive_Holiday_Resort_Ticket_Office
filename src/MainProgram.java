@@ -11,13 +11,12 @@ public class MainProgram {
     private static SortedArrayList<Activity> activities;
     private static SortedArrayList<Customer> customerList;
     private static ArrayList<PurchaseOrder> orders;
-
     public static void main(String[] args) {
-        activities = new SortedArrayList<Activity>();
+        activities = new SortedArrayList<>();
         readActivitiesFile();
-        customerList = new SortedArrayList<Customer>();
+        customerList = new SortedArrayList<>();
         readCustomersFile();
-        orders = new ArrayList<PurchaseOrder>();
+        orders = new ArrayList<>();
         boolean done = false;
         System.out.println("Welcome to the Samsung Resort on Geoje.");
         while (!done) {
@@ -27,9 +26,8 @@ public class MainProgram {
                 Scanner userInput = new Scanner(System.in);
                 String entry = userInput.next();
                 if (entry.equals("f") || entry.equals("a") || entry.equals("c") || entry.equals("t") || entry.equals("r") ||
-                        entry.equals("F") || entry.equals("A") || entry.equals("C") || entry.equals("T") || entry.equals("R") ) {
+                        entry.equals("F") || entry.equals("A") || entry.equals("C") || entry.equals("T") || entry.equals("R") )
                     option = entry.charAt(0);
-                }
                 switch (option) {
                     case 'f': //User exits the program.
                     case 'F':
@@ -49,15 +47,10 @@ public class MainProgram {
                     case 'T':
                         //the following method takes in clerk input and uses it to find the customer in the list. If the customer can't be found, exit the loop.
                         int customerIndex = inputCustomerName();
-                        if (customerIndex < 0) {
-                            System.out.println("Please check the customer's name and try again.");
-                            break;
-                        }
+                        if (customerIndex < 0) break;
                         //the following method takes in clerk input and checks it against the list of activities. If the activity can't be found, exit the loop.
                         int activityIndex = inputActivityName();
-                        if (activityIndex < 0) {
-                            break;
-                        }
+                        if (activityIndex < 0) break;
                         //enter the number of tickets to be bought. break loop if the number is invalid
                         int ticketQuantity = enterTicketQuantity(activityIndex);
                         if (ticketQuantity<=0) {
@@ -65,9 +58,8 @@ public class MainProgram {
                             break;
                         }
                         //check the number of tickets the customer wants are available
-                        if (!checkSufficientTickets(activityIndex, ticketQuantity, customerList.get(customerIndex).getFirstName(), customerList.get(customerIndex).getLastName())) {
+                        if (!checkSufficientTickets(activityIndex, ticketQuantity, customerList.get(customerIndex).getFirstName(), customerList.get(customerIndex).getLastName()))
                             break;
-                        }
                         //check if customer has previously registered for this activity
                         boolean previouslyPurchased = checkIfPreviouslyPurchased(customerIndex, activityIndex, ticketQuantity);
                         //the following method checks number of registered activities for the customer.
@@ -79,17 +71,11 @@ public class MainProgram {
                             break;
                         }
                         PurchaseOrder activeOrder = new PurchaseOrder(customerList.get(customerIndex), activities.get(activityIndex).getActivityName(), ticketQuantity);
-                        if (orders.size() == 0 && !previouslyPurchased) {
-                            orders.add(activeOrder);
-                        } else if (!previouslyPurchased) {
-                            orders.add(activeOrder);
-                        }
+                        if (orders.size() == 0 && !previouslyPurchased) orders.add(activeOrder);
+                        else orders.add(activeOrder);
                         updateAdd(activeOrder, ticketQuantity, previouslyPurchased, activityIndex);
-                        if (customerList.get(customerIndex).getRegisteredOrders() == 1) {
-                            System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activity.");
-                        } else {
-                            System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activities.");
-                        }
+                        if (customerList.get(customerIndex).getRegisteredOrders() == 1) System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activity.");
+                        else System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has registered for " + customerList.get(customerIndex).getRegisteredOrders() + " activities.");
                         break;
                     case 'r': //Update info after ticket canceled.
                     case 'R':
@@ -101,21 +87,14 @@ public class MainProgram {
                         }
                         //the following method takes in clerk input and checks it against the list of activities. If the activity can't be found, exit the loop.
                         activityIndex = inputActivityName();
-                        if (activityIndex == -1) {
-                            break;
-                        }
+                        if (activityIndex == -1) break;
                         //find purchase order using customer name and activity name
                         //check the purchase order has the same customer and activity names as input
                         int poIndex = getPOIndex(customerList.get(customerIndex), activities.get(activityIndex).getActivityName(), 0);
-                        if (poIndex == -1) {
-                            System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has not previously bought tickets for " + activities.get(activityIndex).getActivityName() + ".");
-                            System.out.println("Please check your input and try again.");
-                        }
+                        if (poIndex == -1) System.out.println(customerList.get(customerIndex).getFirstName() + " " + customerList.get(customerIndex).getLastName() + " has not previously bought tickets for " + activities.get(activityIndex).getActivityName() + ".");
                         //ask how many tickets to cancel. break loop if the number is invalid
                         int cancelQuantity = getCancelQuantity(poIndex);
-                        if (cancelQuantity <=0) {
-                            break;
-                        }
+                        if (cancelQuantity <=0) break;
                         //check customer has purchased as many tickets as they are requesting to be cancelled
                         if (cancelQuantity <= orders.get(poIndex).getTicketsBought()) {
                             cancelQuantity = cancelQuantity * (-1);
@@ -138,6 +117,9 @@ public class MainProgram {
         }
     }
 
+    /*
+    The following are methods used in the main method.
+     */
     /**
      * This method reads the input file called "input.txt" located in root. The first line is the number of activities.
      * A for loop is run for as many iterations as there are activities.
@@ -146,7 +128,7 @@ public class MainProgram {
      */
     public static void readActivitiesFile() {
         int numberCustomers;
-        int numberActivities = 0;
+        int numberActivities;
         try {
             Scanner inFile = new Scanner(new FileReader("input.txt"));
             while (inFile.hasNextLine()) {
@@ -167,7 +149,6 @@ public class MainProgram {
         }
 
     }
-
     /**
      * This method reads the input file. The first line is the number of activities.
      * A for loop is run for as many iterations as there are activities and skips over these lines.
@@ -178,11 +159,10 @@ public class MainProgram {
      */
     public static void readCustomersFile() {
         int numberCustomers;
-        int numberActivities = 0;
+        int numberActivities;
         try {
             Scanner inFile = new Scanner(new FileReader("input.txt"));
             while (inFile.hasNextLine()) {
-                //TODO: use the #activities as the start of the second for loop and j is less than #cust + #act
                 numberActivities = parseInt(inFile.nextLine());
                 for (int i = 0; i < numberActivities; i++) {
                     inFile.nextLine(); //to skip over activity name
@@ -191,7 +171,7 @@ public class MainProgram {
                 numberCustomers = parseInt(inFile.nextLine());
                 for (int j = 0; j < numberCustomers; j++) {
                     String name = inFile.nextLine();
-                    String separated[] = name.split(" ");
+                    String[] separated = name.split(" ");
                     String firstName = separated[0];
                     String lastName = separated[1];
                     int registeredActivities=0;
@@ -203,11 +183,9 @@ public class MainProgram {
             System.out.println("Sorry, invalid file path.");
         }
     }
-
     /**
      * Interactive menu that explains the options to the clerk.
      */
-
     private static void printMenu() {
         System.out.println("Please choose from one of the following options.");
         System.out.println("f: Exit the program.");
@@ -216,7 +194,6 @@ public class MainProgram {
         System.out.println("t: Update stored data after customer buys a ticket.");
         System.out.println("r: Update stored data after customer cancels a ticket.");
     }
-
     /**
      * Accepts clerk input for name.
      * Input is split into two fields for first and last name.
@@ -229,17 +206,15 @@ public class MainProgram {
             System.out.println("Please enter the customer's full name, first and last.");
             Scanner input = new Scanner(System.in);
             String name = input.nextLine();
-            String separated[] = name.split(" ");
+            String[] separated = name.split(" ");
             String firstName = separated[0];
             String lastName = separated[1];
-            //System.out.println("You have entered:");
-            //System.out.println("First Name: " + firstName + ". Last Name: " + lastName);
             customerIndex = checkName(firstName, lastName);
         } catch (InputMismatchException e) {
             System.out.println("Please enter a valid option.");
         }
         catch (IndexOutOfBoundsException f) {
-            System.out.println("Please check your input and try again. Thank you.");
+            System.out.println("Please enter the customer's first and last name. Thank you.");
         }
         return customerIndex;
     }
@@ -255,13 +230,9 @@ public class MainProgram {
         Customer tempCustomer = new Customer(firstName, lastName, 0);
         int customerIndex = -1;
         for (int i = 0; i<customerList.size(); i++){
-            if (tempCustomer.compareTo(customerList.get(i))==0){
-                customerIndex=i;
-            }
+            if (tempCustomer.compareTo(customerList.get(i))==0) customerIndex=i;
         }
-        if (customerIndex == -1) {
-            System.out.println(firstName + " " + lastName + " is not a registered customer.");
-        }
+        if (customerIndex == -1) System.out.println(firstName + " " + lastName + " is not a registered customer.");
         return customerIndex;
     }
     /**
@@ -270,23 +241,19 @@ public class MainProgram {
      * @return index at which the activity may be located in the list of activities
      */
     private static int inputActivityName(){
-        String ticketActivityName = null;
+        String ticketActivityName;
         int activityIndex = -1;
         try {
             System.out.println("Please enter the customer's chosen activity.");
             Scanner input = new Scanner(System.in);
             ticketActivityName = input.nextLine();
             activityIndex = checkActivities(ticketActivityName);
-            if (activityIndex == -1) {
-                System.out.println(ticketActivityName + " is not a valid activity name. Please try again.");
-                ticketActivityName = null;
-            }
+            if (activityIndex == -1) System.out.println(ticketActivityName + " is not a valid activity name. Please try again.");
         } catch (InputMismatchException e) {
             System.out.println("Please enter a valid activity name.");
         }
         return activityIndex;
     }
-
     /**
      * Customers are only allowed to register for 3 activities at a time.
      * The number of registered activities is saved in the Customer object.
@@ -297,12 +264,9 @@ public class MainProgram {
      */
     private static boolean checkNumberActivities(Customer activeCustomer){
         boolean canRegister = false;
-        if (activeCustomer.getRegisteredOrders()<MAX_NUMBER_ACTIVITIES_ALLOWED){
-            canRegister = true;
-        }
+        if (activeCustomer.getRegisteredOrders()<MAX_NUMBER_ACTIVITIES_ALLOWED) canRegister = true;
         return canRegister;
     }
-
     /**
      * This method checks activity name against the arraylist of activity objects and finds the index where the activity is located
      * @param ticketActivityName: activity name to be checked
@@ -318,7 +282,6 @@ public class MainProgram {
         }
         return activityIndex;
     }
-
     /**
      * accepts clerk input for number of tickets to purchase for a given activity found at the activity index
      * @param activityIndex used to find the activity in the activities arraylist
@@ -352,17 +315,14 @@ public class MainProgram {
             if (ticketsBought > availableTickets) {
                 System.out.println("You requested " + ticketsBought + " tickets for " + ticketActivityName + ", but only " + availableTickets + " tickets are available.");
                 print(ticketActivityName, ticketsBought, availableTickets, firstName, lastName);
-            } else if (ticketsBought <=availableTickets) {
-                ticketsAvailable = true;
-            } else {
-                System.out.println("Please enter a valid number of tickets. Thank you.");
-            }
+            } else ticketsAvailable = true;
         //}
         return ticketsAvailable;
     }
     /**
      * In the case that the customer has requested more tickets for an activity than are available, a letter is issued.
      * if the customer requests a number of tickets that could be accommodated by a different activity, those activities are suggested
+     * this method prints to existing file called letters in the root.
      * @param ticketActivityName the ticket activity name is used in the letter
      * @param ticketsBought number of tickets bought is used in the letter
      * @param availableTickets number of available tickets is used in the letter
@@ -370,45 +330,21 @@ public class MainProgram {
      * @param lastName customer's last name is used in the letter
      */
     private static void print(String ticketActivityName, int ticketsBought, int availableTickets, String firstName, String lastName){
-        ArrayList<String> availableActivities = null;
         PrintWriter outFile;
         try {
             outFile = new PrintWriter("letters.txt");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        boolean availableActivityExists = areActivitiesAvailable(ticketsBought);
-        if (availableActivityExists) {
-            availableActivities = findAvailableActivities(ticketsBought);
-        }
+        ArrayList<String> availableActivities = findAvailableActivities(ticketsBought);
         outFile.write("Dear " + firstName + " " + lastName + "," + "\n");
         outFile.write("Thank you for your interest in " + ticketActivityName + ". Unfortunately, there are only " + availableTickets + " tickets available for " + ticketActivityName + " at present." +"\n");
         outFile.write("We invite you to try another of our activities." +"\n");
-        if (availableActivityExists) {
-            outFile.write("The following activities have more than " + ticketsBought + " tickets available: " + availableActivities.toString() +"\n");
-        }
+        if (availableActivities.size()>0) outFile.write("The following activities have more than " + ticketsBought + " tickets available: " + availableActivities.toString() +"\n");
         outFile.write("Sincerely," +"\n");
         outFile.write("The Samsung Hotel at Geoje.");
         outFile.close();
     }
-
-    /**
-     * this method is used in the print() method.
-     * in this case, the customer has requested more tickets than are available for their desired activity.
-     * this method looks through the activity list to see if there are any activities that can accommodate their group size
-     * @param ticketsBought number of tickets customer attempted to buy
-     * @return true if the group can be accommodated at a different activity and false if they cannot
-     */
-    private static boolean areActivitiesAvailable(int ticketsBought) {
-        boolean availableActivityExists = false;
-        for (int i = 0; i < activities.size(); i++) {
-            if (activities.get(i).getTicketsAvailable() >= ticketsBought) {
-                availableActivityExists = true;
-            }
-        }
-        return availableActivityExists;
-    }
-
     /**
      * this method is used in the print() method.
      * in this case, the customer has requested more tickets than are available for their desired activity.
@@ -420,9 +356,7 @@ public class MainProgram {
     private static ArrayList<String> findAvailableActivities(int ticketsBought) {
         ArrayList<String> availableActivities = new ArrayList<>();
         for (int i = 0; i < activities.size(); i++) {
-            if (activities.get(i).getTicketsAvailable() >= ticketsBought) {
-                availableActivities.add(activities.get(i).getActivityName());
-            }
+            if (activities.get(i).getTicketsAvailable() >= ticketsBought) availableActivities.add(activities.get(i).getActivityName());
         }
         return availableActivities;
     }
@@ -439,11 +373,8 @@ public class MainProgram {
         PurchaseOrder activeOrder = new PurchaseOrder(customerList.get(customerIndex), activities.get(activityIndex).getActivityName(), ticketsBought);
         //if ticket is adding on to previously purchased order
         for (PurchaseOrder compareOrder : orders) {
-            if (compareOrder.compareTo(activeOrder) == 0) {
-                previouslyPurchased = true;
-            } else {
-                previouslyPurchased = false;
-            }
+            if (compareOrder.compareTo(activeOrder) == 0) previouslyPurchased = true;
+            else previouslyPurchased = false;
         }
         return previouslyPurchased;
     }
@@ -470,12 +401,10 @@ public class MainProgram {
             updatePOTickets(poIndex, ticketsBought);
             //update available tickets in activity list
             updateAvailableTickets(ticketsBought, activityIndex);
-        } else if (!previouslyPurchased) { //if this is a new activity for the customer
+        } else { //if this is a new activity for the customer
             updateAvailableTickets(ticketsBought, activityIndex);
             //update number of activities for which customer has registered
-            if (ticketsBought > 0) {
-                incrementNumberPOs(custIndex);
-            }
+            if (ticketsBought > 0) incrementNumberPOs(custIndex);
         }
     }
     /**
@@ -517,13 +446,10 @@ public class MainProgram {
         PurchaseOrder po = new PurchaseOrder(c, ticketActivityName, ticketsBought);
         int poIndex = -1;
         for (int i = 0; i<orders.size(); i++) {
-                if (orders.get(i).compareTo(po) == 0) {
-                    poIndex = i;
-            }
+                if (orders.get(i).compareTo(po) == 0) poIndex = i;
         }
         return poIndex;
     }
-
     /**
      * using purchase order index, update the number of tickets bought by a customer on that purchase order
      * @param poIndex used to find purchase order in arraylist
@@ -535,7 +461,6 @@ public class MainProgram {
         previousTicketQuantity += ticketsBought;
         orders.get(poIndex).setTicketsBought(previousTicketQuantity);
     }
-
     /**
      * using activity index, update the number of available tickets for a given activity after purchase or return
      * @param ticketsBought number of tickets bought; used to update number of available tickets
@@ -546,10 +471,9 @@ public class MainProgram {
         ticketsAvailable -= ticketsBought;
         activities.get(activityIndex).setTicketsAvailable(ticketsAvailable);
     }
-
     /**
      * clerk inputs number of tickets the customer would like to cancel
-     * @param poIndex number of tickets customer has previoulsy purchased for this activity
+     * @param poIndex number of tickets customer has previously purchased for this activity
      * @return number of tickets the customer would like to cancel
      */
     private static int getCancelQuantity(int poIndex) {
@@ -567,7 +491,6 @@ public class MainProgram {
     }
     return cancelQuantity;
     }
-
     /**
      * after buying tickets for a new activity, the customer's number of registered activities is increased
      * @param custIndex used to find the customer in the arraylist
@@ -577,7 +500,6 @@ public class MainProgram {
         numberRegisteredActivities++;
         customerList.get(custIndex).setRegisteredOrders(numberRegisteredActivities);
     }
-
     /**
      * after returning all the tickets for n activity, the customer's number of registered activities is decreased
      * @param custIndex used to find the customer in the arraylist
